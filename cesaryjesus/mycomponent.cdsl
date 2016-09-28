@@ -1,0 +1,10 @@
+import "/robocomp/interfaces/IDSLs/DifferentialRobot.idsl";
+import "/robocomp/interfaces/IDSLs/Laser.idsl";
+
+Component cesaryjesus{
+    Communications{
+        requires DifferentialRobot, Laser;
+    };
+gui Qt(QWidget);
+language Cpp; //language Python;
+};
