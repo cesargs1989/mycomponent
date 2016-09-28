@@ -1,0 +1,29 @@
+file(REMOVE_RECURSE
+  "cesaryjesus_automoc.cpp"
+  "CommonBehavior.cpp"
+  "CommonBehavior.h"
+  "DifferentialRobot.cpp"
+  "DifferentialRobot.h"
+  "Laser.cpp"
+  "Laser.h"
+  "ui_mainUI.h"
+  "CMakeFiles/cesaryjesus.dir/specificworker.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/main.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/genericworker.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/Laser.cpp.o"
+  "CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o"
+  "../bin/cesaryjesus.pdb"
+  "../bin/cesaryjesus"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/cesaryjesus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
