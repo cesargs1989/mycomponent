@@ -48,23 +48,31 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 
 void SpecificWorker::compute()
 {
-    const float threshold = 200; //millimeters
-    float rot = 0.6;  //rads per second
+    const float threshold = 417; //millimeters
+    float rot = 0.7;  //rads per second
 
     try
     {
         RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data 
-        std::sort( ldata.begin(), ldata.end(), [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
+        std::sort( ldata.begin()+8, ldata.end()-8, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
 
-    if( ldata.front().dist < threshold)
+    if( ldata[8].dist < threshold)
     {
-        std::cout << ldata.front().dist << std::endl;
-        differentialrobot_proxy->setSpeedBase(5, rot);
+              std::cout << ldata.front().dist << std::endl;
+
+      if ( ldata[8].angle > 0 ){
+      
+        differentialrobot_proxy->setSpeedBase(5, -rot);
         usleep(rand()%(1500000-100000 + 1) + 100000);  //random wait between 1.5s and 0.1sec
+	}
+	else{
+	          differentialrobot_proxy->setSpeedBase(5, rot);
+		  usleep(rand()%(1500000-100000 + 1) + 100000);  //random wait between 1.5s and 0.1sec
+	}
     }
     else
     {
-        differentialrobot_proxy->setSpeedBase(200, 0); 
+        differentialrobot_proxy->setSpeedBase(500, 0); // velocidad robot
     }
     }
     catch(const Ice::Exception &ex)

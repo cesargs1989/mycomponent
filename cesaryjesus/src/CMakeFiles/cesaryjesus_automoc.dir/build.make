@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/robocomp/mycomponent/cesaryjesus
+CMAKE_SOURCE_DIR = /home/salabeta/robo/mycomponent/cesaryjesus
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/robocomp/mycomponent/cesaryjesus
+CMAKE_BINARY_DIR = /home/salabeta/robo/mycomponent/cesaryjesus
 
 # Utility rule file for cesaryjesus_automoc.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/cesar/robocomp/mycomponent/cesaryjesus
 include src/CMakeFiles/cesaryjesus_automoc.dir/progress.make
 
 src/CMakeFiles/cesaryjesus_automoc:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc for target cesaryjesus"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/cmake -E cmake_autogen /home/cesar/robocomp/mycomponent/cesaryjesus/src/CMakeFiles/cesaryjesus_automoc.dir/ ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc for target cesaryjesus"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/cmake -E cmake_autogen /home/salabeta/robo/mycomponent/cesaryjesus/src/CMakeFiles/cesaryjesus_automoc.dir/ ""
 
 cesaryjesus_automoc: src/CMakeFiles/cesaryjesus_automoc
 cesaryjesus_automoc: src/CMakeFiles/cesaryjesus_automoc.dir/build.make
@@ -68,10 +68,10 @@ src/CMakeFiles/cesaryjesus_automoc.dir/build: cesaryjesus_automoc
 .PHONY : src/CMakeFiles/cesaryjesus_automoc.dir/build
 
 src/CMakeFiles/cesaryjesus_automoc.dir/clean:
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && $(CMAKE_COMMAND) -P CMakeFiles/cesaryjesus_automoc.dir/cmake_clean.cmake
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && $(CMAKE_COMMAND) -P CMakeFiles/cesaryjesus_automoc.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/cesaryjesus_automoc.dir/clean
 
 src/CMakeFiles/cesaryjesus_automoc.dir/depend:
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/robocomp/mycomponent/cesaryjesus /home/cesar/robocomp/mycomponent/cesaryjesus/src /home/cesar/robocomp/mycomponent/cesaryjesus /home/cesar/robocomp/mycomponent/cesaryjesus/src /home/cesar/robocomp/mycomponent/cesaryjesus/src/CMakeFiles/cesaryjesus_automoc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/salabeta/robo/mycomponent/cesaryjesus && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salabeta/robo/mycomponent/cesaryjesus /home/salabeta/robo/mycomponent/cesaryjesus/src /home/salabeta/robo/mycomponent/cesaryjesus /home/salabeta/robo/mycomponent/cesaryjesus/src /home/salabeta/robo/mycomponent/cesaryjesus/src/CMakeFiles/cesaryjesus_automoc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/cesaryjesus_automoc.dir/depend
 

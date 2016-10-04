@@ -6,35 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cesar/robocomp/classes/qlog/qlog.cpp
-qlog.h
-/home/cesar/robocomp/classes/qlog/qlog.h
-
-/home/cesar/robocomp/classes/qlog/qlog.h
-config.h
-/home/cesar/robocomp/classes/qlog/config.h
-QtCore
--
-iostream
--
-Logger.h
--
-
-/home/cesar/robocomp/classes/rapplication/rapplication.cpp
-rapplication.h
-/home/cesar/robocomp/classes/rapplication/rapplication.h
-
-/home/cesar/robocomp/classes/rapplication/rapplication.h
-Ice/Ice.h
--
-Ice/Application.h
--
-IceUtil/IceUtil.h
--
-QtCore
--
-
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/CommonBehavior.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/CommonBehavior.cpp
 CommonBehavior.h
 -
 Ice/LocalException.h
@@ -48,7 +20,7 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/DifferentialRobot.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/DifferentialRobot.cpp
 DifferentialRobot.h
 -
 Ice/LocalException.h
@@ -62,7 +34,7 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/Laser.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/Laser.cpp
 Laser.h
 -
 Ice/LocalException.h
@@ -76,23 +48,23 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp
 moc_commonbehaviorI.cpp
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_commonbehaviorI.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_commonbehaviorI.cpp
 moc_genericmonitor.cpp
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_genericmonitor.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_genericmonitor.cpp
 moc_genericworker.cpp
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_genericworker.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_genericworker.cpp
 moc_specificmonitor.cpp
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_specificmonitor.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificmonitor.cpp
 moc_specificworker.cpp
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_specificworker.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificworker.cpp
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.cpp
 commonbehaviorI.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.h
 QtCore/QObject
 -
 Ice/Ice.h
@@ -102,37 +74,37 @@ CommonBehavior.h
 config.h
 -
 genericworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 genericmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/config.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/config.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.cpp
 genericmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.h
 Ice/Ice.h
 -
 QtCore
 -
 genericworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 config.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/config.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/config.h
 qlog/qlog.h
 -
 CommonBehavior.h
 -
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.cpp
 genericworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 config.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/config.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/config.h
 QtGui
 -
 stdint.h
@@ -148,7 +120,7 @@ Laser.h
 DifferentialRobot.h
 -
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/main.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/main.cpp
 signal.h
 -
 QtCore
@@ -166,58 +138,86 @@ rapplication/rapplication.h
 qlog/qlog.h
 -
 config.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/config.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/config.h
 genericmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.h
 genericworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 specificworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.h
 specificmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.h
 commonbehaviorI.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.h
 DifferentialRobot.h
 -
 Laser.h
 -
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_commonbehaviorI.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_commonbehaviorI.cpp
 commonbehaviorI.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_genericmonitor.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_genericmonitor.cpp
 genericmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_genericworker.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_genericworker.cpp
 genericworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_specificmonitor.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificmonitor.cpp
 specificmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/moc_specificworker.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificworker.cpp
 specificworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp
 specificmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.h
 genericmonitor.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.cpp
 specificworker.h
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.h
 
-/home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.h
 genericworker.h
 -
 innermodel/innermodel.h
+-
+
+/home/salabeta/robocomp/classes/qlog/qlog.cpp
+qlog.h
+/home/salabeta/robocomp/classes/qlog/qlog.h
+
+/home/salabeta/robocomp/classes/qlog/qlog.h
+config.h
+/home/salabeta/robocomp/classes/qlog/config.h
+QtCore
+-
+iostream
+-
+Logger.h
+-
+
+/home/salabeta/robocomp/classes/rapplication/rapplication.cpp
+rapplication.h
+/home/salabeta/robocomp/classes/rapplication/rapplication.h
+
+/home/salabeta/robocomp/classes/rapplication/rapplication.h
+Ice/Ice.h
+-
+Ice/Application.h
+-
+IceUtil/IceUtil.h
+-
+QtCore
 -
 
 /opt/robocomp/include/innermodel/innermodel.h

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cesar/robocomp/mycomponent/cesaryjesus
+CMAKE_SOURCE_DIR = /home/salabeta/robo/mycomponent/cesaryjesus
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cesar/robocomp/mycomponent/cesaryjesus
+CMAKE_BINARY_DIR = /home/salabeta/robo/mycomponent/cesaryjesus
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/cesaryjesus.dir/depend.make
@@ -58,42 +58,42 @@ include src/CMakeFiles/cesaryjesus.dir/progress.make
 include src/CMakeFiles/cesaryjesus.dir/flags.make
 
 src/CommonBehavior.cpp: /opt/robocomp/interfaces/CommonBehavior.ice
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating CommonBehavior.cpp and CommonBehavior.h from CommonBehavior.ice"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && slice2cpp -I/home/cesar/robocomp//interfaces/ -I/opt/robocomp/interfaces -I. /opt/robocomp/interfaces/CommonBehavior.ice --output-dir .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating CommonBehavior.cpp and CommonBehavior.h from CommonBehavior.ice"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && slice2cpp -I/home/salabeta/robocomp//interfaces/ -I/opt/robocomp/interfaces -I. /opt/robocomp/interfaces/CommonBehavior.ice --output-dir .
 
 src/CommonBehavior.h: src/CommonBehavior.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate src/CommonBehavior.h
 
 src/DifferentialRobot.cpp: /opt/robocomp/interfaces/DifferentialRobot.ice
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating DifferentialRobot.cpp and DifferentialRobot.h from DifferentialRobot.ice"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && slice2cpp -I/home/cesar/robocomp//interfaces/ -I/opt/robocomp/interfaces -I. /opt/robocomp/interfaces/DifferentialRobot.ice --output-dir .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating DifferentialRobot.cpp and DifferentialRobot.h from DifferentialRobot.ice"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && slice2cpp -I/home/salabeta/robocomp//interfaces/ -I/opt/robocomp/interfaces -I. /opt/robocomp/interfaces/DifferentialRobot.ice --output-dir .
 
 src/DifferentialRobot.h: src/DifferentialRobot.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate src/DifferentialRobot.h
 
 src/Laser.cpp: /opt/robocomp/interfaces/Laser.ice
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Laser.cpp and Laser.h from Laser.ice"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && slice2cpp -I/home/cesar/robocomp//interfaces/ -I/opt/robocomp/interfaces -I. /opt/robocomp/interfaces/Laser.ice --output-dir .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Laser.cpp and Laser.h from Laser.ice"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && slice2cpp -I/home/salabeta/robocomp//interfaces/ -I/opt/robocomp/interfaces -I. /opt/robocomp/interfaces/Laser.ice --output-dir .
 
 src/Laser.h: src/Laser.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate src/Laser.h
 
 src/ui_mainUI.h: src/mainUI.ui
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating ui_mainUI.h"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/lib/x86_64-linux-gnu/qt4/bin/uic -o /home/cesar/robocomp/mycomponent/cesaryjesus/src/ui_mainUI.h /home/cesar/robocomp/mycomponent/cesaryjesus/src/mainUI.ui
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating ui_mainUI.h"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/lib/x86_64-linux-gnu/qt4/bin/uic -o /home/salabeta/robo/mycomponent/cesaryjesus/src/ui_mainUI.h /home/salabeta/robo/mycomponent/cesaryjesus/src/mainUI.ui
 
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: src/specificworker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/specificworker.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/specificworker.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.cpp
 
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/specificworker.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.cpp > CMakeFiles/cesaryjesus.dir/specificworker.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.cpp > CMakeFiles/cesaryjesus.dir/specificworker.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/specificworker.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/specificworker.cpp -o CMakeFiles/cesaryjesus.dir/specificworker.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.cpp -o CMakeFiles/cesaryjesus.dir/specificworker.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o.requires:
 
@@ -108,16 +108,16 @@ src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o.provides.build: src/CMakeFil
 
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/specificmonitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp
 
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.cpp > CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp > CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/specificmonitor.cpp -o CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp -o CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o.requires:
 
@@ -130,66 +130,66 @@ src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o.provides: src/CMakeFiles/ce
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o.provides.build: src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o
 
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o: /home/cesar/robocomp/classes/rapplication/rapplication.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o -c /home/cesar/robocomp/classes/rapplication/rapplication.cpp
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o: /home/salabeta/robocomp/classes/rapplication/rapplication.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o -c /home/salabeta/robocomp/classes/rapplication/rapplication.cpp
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/classes/rapplication/rapplication.cpp > CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.i
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robocomp/classes/rapplication/rapplication.cpp > CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/classes/rapplication/rapplication.cpp -o CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.s
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robocomp/classes/rapplication/rapplication.cpp -o CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.requires:
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.requires:
 
-.PHONY : src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.requires
+.PHONY : src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.requires
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.provides: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.requires
-	$(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.provides.build
-.PHONY : src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.provides
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.provides: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.provides.build
+.PHONY : src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.provides
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.provides.build: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.provides.build: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o
 
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o: /home/cesar/robocomp/classes/qlog/qlog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o -c /home/cesar/robocomp/classes/qlog/qlog.cpp
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o -c /home/salabeta/robocomp/classes/qlog/qlog.cpp
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/classes/qlog/qlog.cpp > CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.i
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.i"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robocomp/classes/qlog/qlog.cpp > CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.i
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/classes/qlog/qlog.cpp -o CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.s
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.s"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robocomp/classes/qlog/qlog.cpp -o CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.s
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.requires:
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.requires:
 
-.PHONY : src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.requires
+.PHONY : src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.requires
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.provides: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.requires
-	$(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.provides.build
-.PHONY : src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.provides
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.provides: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.requires
+	$(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.provides.build
+.PHONY : src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.provides
 
-src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.provides.build: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o
+src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.provides.build: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o
 
 
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/cesaryjesus.dir/main.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/main.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/cesaryjesus.dir/main.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/main.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/main.cpp
 
 src/CMakeFiles/cesaryjesus.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/main.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/main.cpp > CMakeFiles/cesaryjesus.dir/main.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/main.cpp > CMakeFiles/cesaryjesus.dir/main.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/main.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/main.cpp -o CMakeFiles/cesaryjesus.dir/main.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/main.cpp -o CMakeFiles/cesaryjesus.dir/main.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o.requires:
 
@@ -204,16 +204,16 @@ src/CMakeFiles/cesaryjesus.dir/main.cpp.o.provides.build: src/CMakeFiles/cesaryj
 
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/genericmonitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.cpp
 
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.cpp > CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.cpp > CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/genericmonitor.cpp -o CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.cpp -o CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o.requires:
 
@@ -228,16 +228,16 @@ src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o.provides.build: src/CMakeFil
 
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/commonbehaviorI.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.cpp
 
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.cpp > CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.cpp > CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/commonbehaviorI.cpp -o CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.cpp -o CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o.requires:
 
@@ -252,16 +252,16 @@ src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o.provides.build: src/CMakeFi
 
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: src/genericworker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/genericworker.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/genericworker.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.cpp
 
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/genericworker.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.cpp > CMakeFiles/cesaryjesus.dir/genericworker.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.cpp > CMakeFiles/cesaryjesus.dir/genericworker.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/genericworker.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/genericworker.cpp -o CMakeFiles/cesaryjesus.dir/genericworker.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.cpp -o CMakeFiles/cesaryjesus.dir/genericworker.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o.requires:
 
@@ -276,16 +276,16 @@ src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o.provides.build: src/CMakeFile
 
 src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o: src/CommonBehavior.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/CommonBehavior.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/CommonBehavior.cpp
 
 src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/CommonBehavior.cpp > CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/CommonBehavior.cpp > CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/CommonBehavior.cpp -o CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/CommonBehavior.cpp -o CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o.requires:
 
@@ -300,16 +300,16 @@ src/CMakeFiles/cesaryjesus.dir/CommonBehavior.cpp.o.provides.build: src/CMakeFil
 
 src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o: src/DifferentialRobot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/DifferentialRobot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/DifferentialRobot.cpp
 
 src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/DifferentialRobot.cpp > CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/DifferentialRobot.cpp > CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/DifferentialRobot.cpp -o CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/DifferentialRobot.cpp -o CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o.requires:
 
@@ -324,16 +324,16 @@ src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.o.provides.build: src/CMake
 
 src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o: src/Laser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/Laser.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/Laser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/Laser.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/Laser.cpp
 
 src/CMakeFiles/cesaryjesus.dir/Laser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/Laser.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/Laser.cpp > CMakeFiles/cesaryjesus.dir/Laser.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/Laser.cpp > CMakeFiles/cesaryjesus.dir/Laser.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/Laser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/Laser.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/Laser.cpp -o CMakeFiles/cesaryjesus.dir/Laser.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/Laser.cpp -o CMakeFiles/cesaryjesus.dir/Laser.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o.requires:
 
@@ -348,16 +348,16 @@ src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o.provides.build: src/CMakeFiles/cesary
 
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/CMakeFiles/cesaryjesus.dir/flags.make
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/cesaryjesus_automoc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o -c /home/cesar/robocomp/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o -c /home/salabeta/robo/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp
 
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.i"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cesar/robocomp/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp > CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.i
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/salabeta/robo/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp > CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.i
 
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.s"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cesar/robocomp/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp -o CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.s
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/salabeta/robo/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp -o CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.s
 
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o.requires:
 
@@ -374,8 +374,8 @@ src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o.provides.build: src/CMa
 cesaryjesus_OBJECTS = \
 "CMakeFiles/cesaryjesus.dir/specificworker.cpp.o" \
 "CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o" \
-"CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o" \
-"CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o" \
+"CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o" \
+"CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o" \
 "CMakeFiles/cesaryjesus.dir/main.cpp.o" \
 "CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o" \
 "CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o" \
@@ -390,8 +390,8 @@ cesaryjesus_EXTERNAL_OBJECTS =
 
 bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o
 bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o
-bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o
-bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o
+bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o
+bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o
 bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/main.cpp.o
 bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o
 bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o
@@ -410,8 +410,8 @@ bin/cesaryjesus: /usr/lib/x86_64-linux-gnu/libQtGui.so
 bin/cesaryjesus: /usr/lib/x86_64-linux-gnu/libQtXml.so
 bin/cesaryjesus: /usr/lib/x86_64-linux-gnu/libQtCore.so
 bin/cesaryjesus: src/CMakeFiles/cesaryjesus.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cesar/robocomp/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ../bin/cesaryjesus"
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cesaryjesus.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/salabeta/robo/mycomponent/cesaryjesus/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable ../bin/cesaryjesus"
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cesaryjesus.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/cesaryjesus.dir/build: bin/cesaryjesus
@@ -420,8 +420,8 @@ src/CMakeFiles/cesaryjesus.dir/build: bin/cesaryjesus
 
 src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o.requires
 src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o.requires
-src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/rapplication/rapplication.cpp.o.requires
-src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/home/cesar/robocomp/classes/qlog/qlog.cpp.o.requires
+src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o.requires
+src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o.requires
 src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/main.cpp.o.requires
 src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o.requires
 src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o.requires
@@ -434,7 +434,7 @@ src/CMakeFiles/cesaryjesus.dir/requires: src/CMakeFiles/cesaryjesus.dir/cesaryje
 .PHONY : src/CMakeFiles/cesaryjesus.dir/requires
 
 src/CMakeFiles/cesaryjesus.dir/clean:
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus/src && $(CMAKE_COMMAND) -P CMakeFiles/cesaryjesus.dir/cmake_clean.cmake
+	cd /home/salabeta/robo/mycomponent/cesaryjesus/src && $(CMAKE_COMMAND) -P CMakeFiles/cesaryjesus.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/cesaryjesus.dir/clean
 
 src/CMakeFiles/cesaryjesus.dir/depend: src/CommonBehavior.cpp
@@ -444,6 +444,6 @@ src/CMakeFiles/cesaryjesus.dir/depend: src/DifferentialRobot.h
 src/CMakeFiles/cesaryjesus.dir/depend: src/Laser.cpp
 src/CMakeFiles/cesaryjesus.dir/depend: src/Laser.h
 src/CMakeFiles/cesaryjesus.dir/depend: src/ui_mainUI.h
-	cd /home/cesar/robocomp/mycomponent/cesaryjesus && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cesar/robocomp/mycomponent/cesaryjesus /home/cesar/robocomp/mycomponent/cesaryjesus/src /home/cesar/robocomp/mycomponent/cesaryjesus /home/cesar/robocomp/mycomponent/cesaryjesus/src /home/cesar/robocomp/mycomponent/cesaryjesus/src/CMakeFiles/cesaryjesus.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/salabeta/robo/mycomponent/cesaryjesus && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salabeta/robo/mycomponent/cesaryjesus /home/salabeta/robo/mycomponent/cesaryjesus/src /home/salabeta/robo/mycomponent/cesaryjesus /home/salabeta/robo/mycomponent/cesaryjesus/src /home/salabeta/robo/mycomponent/cesaryjesus/src/CMakeFiles/cesaryjesus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/cesaryjesus.dir/depend
 
