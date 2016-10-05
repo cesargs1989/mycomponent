@@ -80,7 +80,9 @@
 #include "specificmonitor.h"
 #include "commonbehaviorI.h"
 
+#include <rcismousepickerI.h>
 
+#include <RCISMousePicker.h>
 #include <DifferentialRobot.h>
 #include <Laser.h>
 
@@ -91,6 +93,7 @@
 using namespace std;
 using namespace RoboCompCommonBehavior;
 
+using namespace RoboCompRCISMousePicker;
 using namespace RoboCompDifferentialRobot;
 using namespace RoboCompLaser;
 
@@ -136,28 +139,11 @@ int ::cesaryjesus::run(int argc, char* argv[])
 
 	int status=EXIT_SUCCESS;
 
-	LaserPrx laser_proxy;
 	DifferentialRobotPrx differentialrobot_proxy;
+	LaserPrx laser_proxy;
 
 	string proxy, tmp;
 	initialize();
-
-
-	try
-	{
-		if (not GenericMonitor::configGetString(communicator(), prefix, "LaserProxy", proxy, ""))
-		{
-			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy LaserProxy\n";
-		}
-		laser_proxy = LaserPrx::uncheckedCast( communicator()->stringToProxy( proxy ) );
-	}
-	catch(const Ice::Exception& ex)
-	{
-		cout << "[" << PROGRAM_NAME << "]: Exception: " << ex;
-		return EXIT_FAILURE;
-	}
-	rInfo("LaserProxy initialized Ok!");
-	mprx["LaserProxy"] = (::IceProxy::Ice::Object*)(&laser_proxy);//Remote server proxy creation example
 
 
 	try
@@ -176,6 +162,24 @@ int ::cesaryjesus::run(int argc, char* argv[])
 	rInfo("DifferentialRobotProxy initialized Ok!");
 	mprx["DifferentialRobotProxy"] = (::IceProxy::Ice::Object*)(&differentialrobot_proxy);//Remote server proxy creation example
 
+
+	try
+	{
+		if (not GenericMonitor::configGetString(communicator(), prefix, "LaserProxy", proxy, ""))
+		{
+			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy LaserProxy\n";
+		}
+		laser_proxy = LaserPrx::uncheckedCast( communicator()->stringToProxy( proxy ) );
+	}
+	catch(const Ice::Exception& ex)
+	{
+		cout << "[" << PROGRAM_NAME << "]: Exception: " << ex;
+		return EXIT_FAILURE;
+	}
+	rInfo("LaserProxy initialized Ok!");
+	mprx["LaserProxy"] = (::IceProxy::Ice::Object*)(&laser_proxy);//Remote server proxy creation example
+
+	IceStorm::TopicManagerPrx topicManager = IceStorm::TopicManagerPrx::checkedCast(communicator()->propertyToProxy("TopicManager.Proxy"));
 
 
 	SpecificWorker *worker = new SpecificWorker(mprx);
@@ -210,6 +214,34 @@ int ::cesaryjesus::run(int argc, char* argv[])
 
 
 
+
+		// Server adapter creation and publication
+		if (not GenericMonitor::configGetString(communicator(), prefix, "RCISMousePickerTopic.Endpoints", tmp, ""))
+		{
+			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy RCISMousePickerProxy";
+		}
+		Ice::ObjectAdapterPtr RCISMousePicker_adapter = communicator()->createObjectAdapterWithEndpoints("rcismousepicker", tmp);
+		RCISMousePickerPtr rcismousepickerI_ = new RCISMousePickerI(worker);
+		Ice::ObjectPrx rcismousepicker = RCISMousePicker_adapter->addWithUUID(rcismousepickerI_)->ice_oneway();
+		IceStorm::TopicPrx rcismousepicker_topic;
+		if(!rcismousepicker_topic){
+		try {
+			rcismousepicker_topic = topicManager->create("RCISMousePicker");
+		}
+		catch (const IceStorm::TopicExists&) {
+		//Another client created the topic
+		try{
+			rcismousepicker_topic = topicManager->retrieve("RCISMousePicker");
+		}
+		catch(const IceStorm::NoSuchTopic&)
+		{
+			//Error. Topic does not exist
+			}
+		}
+		IceStorm::QoS qos;
+		rcismousepicker_topic->subscribeAndGetPublisher(qos, rcismousepicker);
+		}
+		RCISMousePicker_adapter->activate();
 
 		// Server adapter creation and publication
 		cout << SERVER_FULL_NAME " started" << endl;

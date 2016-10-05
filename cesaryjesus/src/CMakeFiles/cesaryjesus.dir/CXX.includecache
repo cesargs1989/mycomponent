@@ -48,6 +48,20 @@ Ice/Object.h
 IceUtil/Iterator.h
 -
 
+/home/salabeta/robo/mycomponent/cesaryjesus/src/RCISMousePicker.cpp
+RCISMousePicker.h
+-
+Ice/LocalException.h
+-
+Ice/ObjectFactory.h
+-
+Ice/BasicStream.h
+-
+Ice/Object.h
+-
+IceUtil/Iterator.h
+-
+
 /home/salabeta/robo/mycomponent/cesaryjesus/src/cesaryjesus_automoc.cpp
 moc_commonbehaviorI.cpp
 /home/salabeta/robo/mycomponent/cesaryjesus/src/moc_commonbehaviorI.cpp
@@ -55,6 +69,8 @@ moc_genericmonitor.cpp
 /home/salabeta/robo/mycomponent/cesaryjesus/src/moc_genericmonitor.cpp
 moc_genericworker.cpp
 /home/salabeta/robo/mycomponent/cesaryjesus/src/moc_genericworker.cpp
+moc_rcismousepickerI.cpp
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_rcismousepickerI.cpp
 moc_specificmonitor.cpp
 /home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificmonitor.cpp
 moc_specificworker.cpp
@@ -117,6 +133,8 @@ CommonBehavior.h
 -
 Laser.h
 -
+RCISMousePicker.h
+-
 DifferentialRobot.h
 -
 
@@ -149,6 +167,10 @@ specificmonitor.h
 /home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.h
 commonbehaviorI.h
 /home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.h
+rcismousepickerI.h
+-
+RCISMousePicker.h
+-
 DifferentialRobot.h
 -
 Laser.h
@@ -166,6 +188,10 @@ genericmonitor.h
 genericworker.h
 /home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 
+/home/salabeta/robo/mycomponent/cesaryjesus/src/moc_rcismousepickerI.cpp
+rcismousepickerI.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/rcismousepickerI.h
+
 /home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificmonitor.cpp
 specificmonitor.h
 /home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.h
@@ -173,6 +199,22 @@ specificmonitor.h
 /home/salabeta/robo/mycomponent/cesaryjesus/src/moc_specificworker.cpp
 specificworker.h
 /home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.h
+
+/home/salabeta/robo/mycomponent/cesaryjesus/src/rcismousepickerI.cpp
+rcismousepickerI.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/rcismousepickerI.h
+
+/home/salabeta/robo/mycomponent/cesaryjesus/src/rcismousepickerI.h
+QtCore/QObject
+-
+Ice/Ice.h
+-
+RCISMousePicker.h
+-
+config.h
+-
+genericworker.h
+/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.h
 
 /home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp
 specificmonitor.h
@@ -190,6 +232,8 @@ specificworker.h
 genericworker.h
 -
 innermodel/innermodel.h
+-
+qmat/QMatAll
 -
 
 /home/salabeta/robocomp/classes/qlog/qlog.cpp
@@ -4288,6 +4332,38 @@ DifferentialRobot.h
 Ice/UndefSysMacros.h
 -
 
+src/RCISMousePicker.h
+Ice/ProxyF.h
+-
+Ice/ObjectF.h
+-
+Ice/Exception.h
+-
+Ice/LocalObject.h
+-
+Ice/StreamHelpers.h
+-
+Ice/Proxy.h
+-
+Ice/Object.h
+-
+Ice/Outgoing.h
+-
+Ice/OutgoingAsync.h
+-
+Ice/Incoming.h
+-
+Ice/Direct.h
+-
+IceUtil/ScopedArray.h
+-
+IceUtil/Optional.h
+-
+Ice/StreamF.h
+-
+Ice/UndefSysMacros.h
+-
+
 src/config.h
 
 src/genericworker.h
@@ -4305,8 +4381,22 @@ CommonBehavior.h
 -
 Laser.h
 -
+RCISMousePicker.h
+-
 DifferentialRobot.h
 -
+
+src/rcismousepickerI.h
+QtCore/QObject
+-
+Ice/Ice.h
+-
+RCISMousePicker.h
+-
+config.h
+-
+genericworker.h
+src/genericworker.h
 
 src/ui_mainUI.h
 QtCore/QVariant

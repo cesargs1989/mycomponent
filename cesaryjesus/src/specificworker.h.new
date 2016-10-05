@@ -22,50 +22,32 @@
        @author authorname
 */
 
+
+
+
+
+
+
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
 #include <genericworker.h>
 #include <innermodel/innermodel.h>
-#include <qmat/QMatAll>
 
 class SpecificWorker : public GenericWorker
 {
 Q_OBJECT
 public:
-	struct Target{
-	    bool active = false;
-	    mutable QMutex m;
-	    QVec pose;
-	    float amgM;
-	    void setActive(bool v){
-	     QMutexLocker ml(&m);
-	     active = v;
-	    }
-	    void copy(float x, float z){
-		QMutexLocker ml(&m);
-	        pose[0]=x;
-		pose[1]=z;
-	    }
-	    QVec getPose(){
-		QMutexLocker ml(&m);
-		return pose;
-	    }
-	};
-  
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-        void setPick(const Pick &myPick);
-	//	void GenericWorker::setPick(const RoboCompRCISMousePicker::Pick&);
 
+	void setPick(const Pick &myPick);
 
 public slots:
 	void compute(); 	
 
 private:
-    Target target;
-  
 	
 };
 

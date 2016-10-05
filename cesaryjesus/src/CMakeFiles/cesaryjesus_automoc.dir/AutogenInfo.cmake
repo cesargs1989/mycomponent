@@ -1,4 +1,4 @@
-set(AM_SOURCES "/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp;/home/salabeta/robocomp/classes/rapplication/rapplication.cpp;/home/salabeta/robocomp/classes/qlog/qlog.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/main.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.cpp" )
+set(AM_SOURCES "/home/salabeta/robo/mycomponent/cesaryjesus/src/specificworker.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/specificmonitor.cpp;/home/salabeta/robocomp/classes/rapplication/rapplication.cpp;/home/salabeta/robocomp/classes/qlog/qlog.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/main.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/genericmonitor.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/commonbehaviorI.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/genericworker.cpp;/home/salabeta/robo/mycomponent/cesaryjesus/src/rcismousepickerI.cpp" )
 set(AM_RCC_SOURCES  )
 set(AM_RCC_INPUTS )
 set(AM_SKIP_MOC "" )

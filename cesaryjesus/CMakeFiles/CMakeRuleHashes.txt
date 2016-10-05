@@ -3,4 +3,5 @@
 99ee13c78eaf714aee54bb91571ef07a src/CommonBehavior.cpp
 f05d05b652fe7e86cc073f7d9208ed40 src/DifferentialRobot.cpp
 a467760415ffc3f418a1fc732486b857 src/Laser.cpp
+a88ebb7265f6dcff694c4e8e336f7a6b src/RCISMousePicker.cpp
 a263aac7630254a71556e8742cdde907 src/ui_mainUI.h

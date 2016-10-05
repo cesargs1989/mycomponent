@@ -23,7 +23,7 @@
 */
 SpecificWorker::SpecificWorker(MapPrx& mprx) : GenericWorker(mprx)
 {
-
+      
 }
 
 /**
@@ -45,6 +45,11 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 
 	return true;
 }
+
+
+
+
+
 
 void SpecificWorker::compute()
 {
@@ -74,6 +79,10 @@ void SpecificWorker::compute()
     {
         differentialrobot_proxy->setSpeedBase(500, 0); // velocidad robot
     }
+    
+
+    
+    
     }
     catch(const Ice::Exception &ex)
     {
@@ -81,6 +90,11 @@ void SpecificWorker::compute()
     }
 }
 
+void SpecificWorker::setPick(const Pick& myPick)
+{
+   target.copy(myPick.x, myPick.z);
+   target.setActive(true);
+}
 
 
 
