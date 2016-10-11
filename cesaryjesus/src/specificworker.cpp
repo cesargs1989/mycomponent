@@ -56,6 +56,11 @@ void SpecificWorker::compute()
         const float threshold = 417; //millimeters
         float rot = 0.7;  //rads per second
         QVec posdst;
+	float x=0, z=0, auxx=0, auxz=0;
+	float catetoop=0, catetocont=0;
+	float hipotenusa=0, radio;
+	bool enc=false;
+	
 
         try {
                 RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
@@ -66,16 +71,50 @@ void SpecificWorker::compute()
                 if ( target.active ) {
 						//RoboCompLaser::TData a;
                         differentialrobot_proxy->setSpeedBase ( 0, 0 );
-                        qDebug() << ldata.front().dist;
-						posdst = target.getPose(); //dir destino
-					
+			RoboCompDifferentialRobot::TBaseState bState;
+			differentialrobot_proxy->getBaseState( bState);
+			
+			auxx = bState.x;
+			auxz = bState.z;
+                        qDebug() << bState.x << bState.z << bState.alpha;
+			posdst = target.getPose(); //dir destino
+			
+			if (bState.x<0)
+			  auxx=bState.x*-1;
+			if (bState.z<0)
+			  auxz=bState.z*-1;
+			if (posdst.x()<0)
+			  x=posdst.x()*-1;
+			if (posdst.z()<0)
+			  auxz=posdst.z()*-1;
+			catetoop=auxz+z;
+			catetocont=auxx+x;
+			  
+			qDebug() << "trololo" << catetoop << catetocont;
+			
+			
+			
+			hipotenusa = (catetocont * catetocont) + (catetoop * catetoop);
+			hipotenusa = sqrt(hipotenusa);
+			radio= catetoop / hipotenusa;
+			
+			qDebug() << "trololooooooooooooooooo radio" << radio;
+
+			  
+			differentialrobot_proxy->setSpeedBase ( 1, radio );
+			
+			if (radio>0.1){
+			  qDebug() << "ya estoy enfocadoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo";	
+			differentialrobot_proxy->setSpeedBase ( 0, 0 );
+			enc=true;
+			
+		  }
+			
 						
-
-
                 } else {
 
                         if ( ldata[8].dist < threshold ) {
-                                std::cout << ldata.front().dist << std::endl;
+                                std::cout << "laser" << ldata.front().dist << std::endl;
 
                                 if ( ldata[8].angle > 0 ) {
 
@@ -100,9 +139,27 @@ void SpecificWorker::compute()
 void SpecificWorker::setPick ( const Pick& myPick )
 {
         target.copy ( myPick.x, myPick.z );
-
         target.setActive ( true );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
