@@ -21,9 +21,9 @@
 /**
 * \brief Default constructor
 */
-SpecificWorker::SpecificWorker(MapPrx& mprx) : GenericWorker(mprx)
+SpecificWorker::SpecificWorker ( MapPrx& mprx ) : GenericWorker ( mprx )
 {
-      
+
 }
 
 /**
@@ -31,19 +31,19 @@ SpecificWorker::SpecificWorker(MapPrx& mprx) : GenericWorker(mprx)
 */
 SpecificWorker::~SpecificWorker()
 {
-	
+
 }
 
-bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
+bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
 
 
 
-	
-	timer.start(Period);
-	
 
-	return true;
+        timer.start ( Period );
+
+
+        return true;
 }
 
 
@@ -53,47 +53,55 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
 
 void SpecificWorker::compute()
 {
-    const float threshold = 417; //millimeters
-    float rot = 0.7;  //rads per second
+        const float threshold = 417; //millimeters
+        float rot = 0.7;  //rads per second
+        QVec posdst;
 
-    try
-    {
-        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data 
-        std::sort( ldata.begin()+8, ldata.end()-8, [](RoboCompLaser::TData a, RoboCompLaser::TData b){ return     a.dist < b.dist; }) ;  //sort laser data from small to large distances using a lambda function.
+        try {
+                RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
+                std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
+                        return     a.dist < b.dist;
+                } ) ; //sort laser data from small to large distances using a lambda function.
 
-    if( ldata[8].dist < threshold)
-    {
-              std::cout << ldata.front().dist << std::endl;
+                if ( target.active ) {
+						//RoboCompLaser::TData a;
+                        differentialrobot_proxy->setSpeedBase ( 0, 0 );
+                        qDebug() << ldata.front().dist;
+						posdst = target.getPose(); //dir destino
+					
+						
 
-      if ( ldata[8].angle > 0 ){
-      
-        differentialrobot_proxy->setSpeedBase(5, -rot);
-        usleep(rand()%(1500000-100000 + 1) + 100000);  //random wait between 1.5s and 0.1sec
-	}
-	else{
-	          differentialrobot_proxy->setSpeedBase(5, rot);
-		  usleep(rand()%(1500000-100000 + 1) + 100000);  //random wait between 1.5s and 0.1sec
-	}
-    }
-    else
-    {
-        differentialrobot_proxy->setSpeedBase(500, 0); // velocidad robot
-    }
-    
 
-    
-    
-    }
-    catch(const Ice::Exception &ex)
-    {
-        std::cout << ex << std::endl;
-    }
+                } else {
+
+                        if ( ldata[8].dist < threshold ) {
+                                std::cout << ldata.front().dist << std::endl;
+
+                                if ( ldata[8].angle > 0 ) {
+
+                                        differentialrobot_proxy->setSpeedBase ( 5, -rot );
+                                        usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
+                                } else {
+                                        differentialrobot_proxy->setSpeedBase ( 5, rot );
+                                        usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
+                                }
+                        } else {
+                                differentialrobot_proxy->setSpeedBase ( 500, 0 ); // velocidad robot
+                        }
+
+                }
+
+
+        } catch ( const Ice::Exception &ex ) {
+                std::cout << ex << std::endl;
+        }
 }
 
-void SpecificWorker::setPick(const Pick& myPick)
+void SpecificWorker::setPick ( const Pick& myPick )
 {
-   target.copy(myPick.x, myPick.z);
-   target.setActive(true);
+        target.copy ( myPick.x, myPick.z );
+
+        target.setActive ( true );
 }
 
 

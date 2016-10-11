@@ -1,4 +1,4 @@
-# Install script for directory: /home/salabeta/robo/mycomponent/cesaryjesus
+# Install script for directory: /home/jesusuiano/robotica/mycomponent/cesaryjesus
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -41,12 +41,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/opt/robocomp/etc-default" TYPE FILE RENAME "cesaryjesus.conf" FILES "/home/salabeta/robo/mycomponent/cesaryjesus/etc/config")
+file(INSTALL DESTINATION "/opt/robocomp/etc-default" TYPE FILE RENAME "cesaryjesus.conf" FILES "/home/jesusuiano/robotica/mycomponent/cesaryjesus/etc/config")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/salabeta/robo/mycomponent/cesaryjesus/src/cmake_install.cmake")
+  include("/home/jesusuiano/robotica/mycomponent/cesaryjesus/src/cmake_install.cmake")
 
 endif()
 
@@ -58,5 +58,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/salabeta/robo/mycomponent/cesaryjesus/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jesusuiano/robotica/mycomponent/cesaryjesus/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -45,7 +45,7 @@ public:
 	    void copy(float x, float z){
 		QMutexLocker ml(&m);
 	        pose[0]=x;
-		pose[1]=z;
+			pose[1]=z;
 	    }
 	    QVec getPose(){
 		QMutexLocker ml(&m);
