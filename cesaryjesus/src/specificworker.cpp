@@ -53,10 +53,14 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 
 void SpecificWorker::compute()
 {
-        const float threshold = 417; //millimeters
-        float rot = 0.7;  //rads per second
+        const float threshold = 420; //millimeters
+        float rot = 0.6;  //rads per second
         QVec posdst;
-
+        //float aux, aux2;
+        float angulo;
+        double distancia;
+        float X, Z;
+		int i;
         try {
                 RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
                 std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
@@ -64,18 +68,45 @@ void SpecificWorker::compute()
                 } ) ; //sort laser data from small to large distances using a lambda function.
 
                 if ( target.active ) {
-						//RoboCompLaser::TData a;
-                        differentialrobot_proxy->setSpeedBase ( 0, 0 );
-                        qDebug() << ldata.front().dist;
-						posdst = target.getPose(); //dir destino
-					
+                        //RoboCompLaser::TData a;
+
+
+
+                        RoboCompDifferentialRobot::TBaseState bState;
+                        differentialrobot_proxy->getBaseState ( bState );
+
+                        posdst = target.getPose(); //dir destino
+                        angulo=0;
+                        //R(x) +T(x,z);
+                        X = ( sin ( bState.alpha ) * bState.x ) + ( cos ( bState.alpha )  * bState.z )  + posdst.x();
+                        Z = ( cos ( bState.alpha ) * bState.x ) + ( sin ( bState.alpha )  * bState.z )  + ( -posdst.y() );
+                        angulo = atan2 ( X, Z );
+
+						distancia=sqrt(X*X+Z*Z);
 						
+						
+                        differentialrobot_proxy->setSpeedBase ( 0 ,  angulo-bState.alpha );
+						
+						qDebug()<< "distancia: " << distancia;
+
+
+                        usleep ( 1000000 );
+						i=0;
+						while(i<distancia){
+						differentialrobot_proxy->setSpeedBase ( 500, 0);
+						i=i+500;
+						usleep ( 1000000);
+						}
+						target.setActive ( false );
+
+
 
 
                 } else {
-
+                        differentialrobot_proxy->setSpeedBase ( 0 ,  0 );
+/*
                         if ( ldata[8].dist < threshold ) {
-                                std::cout << ldata.front().dist << std::endl;
+                                //std::cout << ldata.front().dist << std::endl;
 
                                 if ( ldata[8].angle > 0 ) {
 
@@ -89,6 +120,7 @@ void SpecificWorker::compute()
                                 differentialrobot_proxy->setSpeedBase ( 500, 0 ); // velocidad robot
                         }
 
+*/
                 }
 
 

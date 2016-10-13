@@ -49,7 +49,9 @@ public:
 	    }
 	    QVec getPose(){
 		QMutexLocker ml(&m);
+		//qDebug()<< "copia 1 : " <<pose[0] << " - "<< pose[1];
 		return pose;
+		
 	    }
 	};
   
