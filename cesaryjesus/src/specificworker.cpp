@@ -53,10 +53,10 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 
 void SpecificWorker::compute()
 {
-     // const float threshold = 420; //millimeters
-       // float rot = 0.6;  //rads per second
+     const float threshold = 420; //millimeters
+       float rot = 0.6;  //rads per second
         QVec posdst;
-        //float aux, aux2;
+        float aux, aux2;
         float angulo;
         double distancia;
         float X, Z;
@@ -77,35 +77,41 @@ void SpecificWorker::compute()
 
                         posdst = target.getPose(); //dir destino
                         angulo=0;
+			distancia=0;
+			qDebug()<< "PUNTOS: " <<  bState.x  << " - " << bState.z;
+			
+			
                         //R(x) +T(x,z);
-                        X = ( sin ( bState.alpha ) * bState.x ) + ( cos ( bState.alpha )  * bState.z )  + posdst.x();
-                        Z = ( cos ( bState.alpha ) * bState.x ) + ( sin ( bState.alpha )  * bState.z )  + ( -posdst.y() );
-                        angulo = atan2 ( X, Z );
+                        Z = ( cos ( bState.alpha ) * bState.z ) + ( -sin ( bState.alpha )  * bState.x ) + (-posdst.y()) ;
+                        X = ( sin ( bState.alpha ) * bState.z ) + ( cos ( bState.alpha )  * bState.x )+ posdst.x() ; 
+                       
 
-						distancia=sqrt(X*X+Z*Z);
+			qDebug()<< "raton: " << X << " - " << Z;
+			
+			
+			angulo = atan2 ( X, Z);
+			
+			distancia=sqrt((X-bState.x)*(X-bState.x)+(Z-bState.z)*(Z-bState.z));
 						
 						
                         differentialrobot_proxy->setSpeedBase ( 0 ,  angulo-bState.alpha );
 						
-						qDebug()<< "distancia: " << distancia;
+			qDebug()<< "distancia: " << distancia;
 
 
                         usleep ( 1000000 );
-						i=0;
-						while(i<distancia){
-						differentialrobot_proxy->setSpeedBase ( 500, 0);
-						i=i+500;
-						usleep ( 1000000);
-						}
-						target.setActive ( false );
+			i=0;
 
+			differentialrobot_proxy->setSpeedBase ( distancia, 0);
+			usleep ( 1000000 );
 
-
+			target.setActive ( false );
+			X = 0;
+			Z = 0;
 
                 } else {
                         differentialrobot_proxy->setSpeedBase ( 0 ,  0 );
-/*
-                        if ( ldata[8].dist < threshold ) {
+                       /* if ( ldata[8].dist < threshold ) {
                                 //std::cout << ldata.front().dist << std::endl;
 
                                 if ( ldata[8].angle > 0 ) {
@@ -133,6 +139,8 @@ void SpecificWorker::compute()
 void SpecificWorker::setPick ( const Pick& myPick )
 {
         target.copy ( myPick.x, myPick.z );
+				qDebug()<< "raton: " << myPick.x << " - " << myPick.z;
+
         target.setActive ( true );
 }
 
