@@ -53,7 +53,7 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 
 void SpecificWorker::compute()
 {
-       // const float threshold = 420; //millimeters
+     // const float threshold = 420; //millimeters
        // float rot = 0.6;  //rads per second
         QVec posdst;
         //float aux, aux2;
@@ -124,6 +124,7 @@ void SpecificWorker::compute()
                 }
 
 
+
         } catch ( const Ice::Exception &ex ) {
                 std::cout << ex << std::endl;
         }
@@ -132,9 +133,27 @@ void SpecificWorker::compute()
 void SpecificWorker::setPick ( const Pick& myPick )
 {
         target.copy ( myPick.x, myPick.z );
-
         target.setActive ( true );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

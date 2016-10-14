@@ -28,6 +28,8 @@
 #include <genericworker.h>
 #include <innermodel/innermodel.h>
 #include <qmat/QMatAll>
+#include <math.h>
+
 
 class SpecificWorker : public GenericWorker
 {
