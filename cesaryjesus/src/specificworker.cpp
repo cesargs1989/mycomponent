@@ -53,8 +53,8 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 
 void SpecificWorker::compute()
 {
-        const float threshold = 420; //millimeters
-        float rot = 0.6;  //rads per second
+       // const float threshold = 420; //millimeters
+       // float rot = 0.6;  //rads per second
         QVec posdst;
         //float aux, aux2;
         float angulo;
