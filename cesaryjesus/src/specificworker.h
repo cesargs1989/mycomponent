@@ -39,36 +39,37 @@ public:
 	    bool active = false;
 	    mutable QMutex m;
 	    QVec pose;
-	    float amgM;
+	    
 	    void setActive(bool v){
 	     QMutexLocker ml(&m);
 	     active = v;
 	    }
+	    
 	    void copy(float x, float z){
 		QMutexLocker ml(&m);
 	        pose[0]=x;
 			pose[1]=z;
 	    }
 	    QVec getPose(){
-		QMutexLocker ml(&m);
-		//qDebug()<< "copia 1 : " <<pose[0] << " - "<< pose[1];
-		return pose;
+			QMutexLocker ml(&m);
+			return pose;
 		
 	    }
-	};
-  
+	}target;
+	//InnerModel inner = new InnerModel();
+	bool girando = true;
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-        void setPick(const Pick &myPick);
-	//	void GenericWorker::setPick(const RoboCompRCISMousePicker::Pick&);
+    void setPick(const Pick &myPick);
+	//void GenericWorker::setPick(const RoboCompRCISMousePicker::Pick&);
 
 
 public slots:
 	void compute(); 	
-
+	
 private:
-    Target target;
+   // Target target;
   
 	
 };

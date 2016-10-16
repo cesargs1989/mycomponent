@@ -37,83 +37,60 @@ SpecificWorker::~SpecificWorker()
 bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
 
-
-
-
         timer.start ( Period );
-
-
         return true;
 }
 
 
-
-
-
-
 void SpecificWorker::compute()
 {
-     const float threshold = 420; //millimeters
-       float rot = 0.6;  //rads per second
-        QVec posdst;
-        float aux, aux2;
-        float angulo;
-        double distancia;
+        const float limite = 100;
+        const float threshold = 420;
+        float limRot = 0.006; //limite rotacion
+        float rot, angulo;
         float X, Z;
-		int i;
+        float posx, posz;
+        double distancia;
+        //QVec posdst;
+
+        RoboCompDifferentialRobot :: TBaseState bState;
+        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
+        std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
+                return     a.dist < b.dist;
+        } ) ; //sort laser data from small to
         try {
-                RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
-                std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
-                        return     a.dist < b.dist;
-                } ) ; //sort laser data from small to large distances using a lambda function.
-
                 if ( target.active ) {
-                        //RoboCompLaser::TData a;
+                        differentialrobot_proxy-> getBaseState ( bState );
 
+                        posz=target.getPose().getItem ( 1 );
+                        posx=target.getPose().getItem ( 0 );
 
+                        if ( !girando ) {
 
-                        RoboCompDifferentialRobot::TBaseState bState;
-                        differentialrobot_proxy->getBaseState ( bState );
+                                X = cos ( bState.alpha ) * ( posx - bState.x ) + ( -sin ( bState.alpha ) * ( posz - bState.z ) );
+                                Z = sin ( bState.alpha ) * ( posx - bState.x ) +  cos ( bState.alpha ) * ( posz - bState.x ) ;
 
-                        posdst = target.getPose(); //dir destino
-                        angulo=0;
-			distancia=0;
-			qDebug()<< "PUNTOS: " <<  bState.x  << " - " << bState.z;
-			
-			
-                        //R(x) +T(x,z);
-                        Z = ( cos ( bState.alpha ) * bState.z ) + ( -sin ( bState.alpha )  * bState.x ) + (-posdst.y()) ;
-                        X = ( sin ( bState.alpha ) * bState.z ) + ( cos ( bState.alpha )  * bState.x )+ posdst.x() ; 
-                       
+                                angulo = atan2 ( X, Z );
+								angulo=abs(angulo);
 
-			qDebug()<< "raton: " << X << " - " << Z;
-			
-			
-			angulo = atan2 ( X, Z);
-			
-			distancia=sqrt((X-bState.x)*(X-bState.x)+(Z-bState.z)*(Z-bState.z));
-						
-						
-                        differentialrobot_proxy->setSpeedBase ( 0 ,  angulo-bState.alpha );
-						
-			qDebug()<< "distancia: " << distancia;
-
-
-                        usleep ( 1000000 );
-			i=0;
-
-			differentialrobot_proxy->setSpeedBase ( distancia, 0);
-			usleep ( 1000000 );
-
-			target.setActive ( false );
-			X = 0;
-			Z = 0;
-
+                                if ( angulo <= limRot ) {
+                                        differentialrobot_proxy->stopBase();
+                                        girando = true;
+                                } else
+                                        differentialrobot_proxy->setSpeedBase ( 0, angulo );
+                        } else if ( girando ) {
+                                distancia = sqrt ( ( ( posx - bState.x ) * ( posx - bState.x ) ) + ( ( posz - bState.z ) * ( posz - bState.z ) ) );
+                                differentialrobot_proxy->setSpeedBase ( 500,0 );
+                                if ( distancia <= limite ) {
+                                        target.setActive ( false );
+                                        girando=false;
+                                        differentialrobot_proxy->stopBase();
+                                }
+                        }
                 } else {
-                        differentialrobot_proxy->setSpeedBase ( 0 ,  0 );
-                       /* if ( ldata[8].dist < threshold ) {
+						/*
+                        if ( ldata[8].dist < threshold ) {
                                 //std::cout << ldata.front().dist << std::endl;
-
                                 if ( ldata[8].angle > 0 ) {
 
                                         differentialrobot_proxy->setSpeedBase ( 5, -rot );
@@ -125,36 +102,18 @@ void SpecificWorker::compute()
                         } else {
                                 differentialrobot_proxy->setSpeedBase ( 500, 0 ); // velocidad robot
                         }
-
-*/
-                }
-
-
-
+                */}
         } catch ( const Ice::Exception &ex ) {
                 std::cout << ex << std::endl;
         }
 }
 
-void SpecificWorker::setPick ( const Pick& myPick )
+void SpecificWorker::setPick ( const Pick &myPick )
 {
-        target.copy ( myPick.x, myPick.z );
-				qDebug()<< "raton: " << myPick.x << " - " << myPick.z;
-
+        target.copy ( myPick.x, -myPick.z );
         target.setActive ( true );
+        girando = false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
