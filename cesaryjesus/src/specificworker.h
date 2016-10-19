@@ -58,6 +58,7 @@ public:
 	}target;
 	//InnerModel inner = new InnerModel();
 	bool girando = true;
+	bool laserini = true;
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
@@ -70,6 +71,9 @@ public slots:
 	
 private:
    // Target target;
+   InnerModel* inner;
+   enum class State {INIT, SEARCH, STOP, CONTROLLER};
+   State state = State::INIT;
   
 	
 };

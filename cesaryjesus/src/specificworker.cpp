@@ -24,6 +24,9 @@
 SpecificWorker::SpecificWorker ( MapPrx& mprx ) : GenericWorker ( mprx )
 {
 
+   this->inner= new InnerModel("/home/salabeta/robocomp/files/innermodel/simpleworld.xml");
+  
+  
 }
 
 /**
@@ -45,9 +48,9 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 void SpecificWorker::compute()
 {
         const float limite = 100;
-        const float threshold = 420;
+        const float threshold = 400;
         float limRot = 0.006; //limite rotacion
-        float rot, angulo;
+        float rot=0.7, angulo;
         float X, Z;
         float posx, posz;
         double distancia;
@@ -87,22 +90,24 @@ void SpecificWorker::compute()
                                         differentialrobot_proxy->stopBase();
                                 }
                         }
-                } else {
-						/*
-                        if ( ldata[8].dist < threshold ) {
-                                //std::cout << ldata.front().dist << std::endl;
-                                if ( ldata[8].angle > 0 ) {
+                        laserini=true;
+                }
+		if (laserini == true && !target.active){				
+		  if ( ldata[12].dist < threshold ) {
+			  //std::cout << ldata.front().dist << std::endl;
+			  if ( ldata[12].angle > 0 ) {
 
-                                        differentialrobot_proxy->setSpeedBase ( 5, -rot );
-                                        usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
-                                } else {
-                                        differentialrobot_proxy->setSpeedBase ( 5, rot );
-                                        usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
-                                }
-                        } else {
-                                differentialrobot_proxy->setSpeedBase ( 500, 0 ); // velocidad robot
-                        }
-                */}
+				  differentialrobot_proxy->setSpeedBase ( 5, -rot );
+				  usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
+			  } else {
+				  differentialrobot_proxy->setSpeedBase ( 5, rot );
+				  usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
+			  }
+		  } else {
+			  differentialrobot_proxy->setSpeedBase ( 500, 0 ); // velocidad robot
+		  }
+		}
+                
         } catch ( const Ice::Exception &ex ) {
                 std::cout << ex << std::endl;
         }
@@ -113,6 +118,7 @@ void SpecificWorker::setPick ( const Pick &myPick )
         target.copy ( myPick.x, -myPick.z );
         target.setActive ( true );
         girando = false;
+	laserini = false;
 }
 
 
