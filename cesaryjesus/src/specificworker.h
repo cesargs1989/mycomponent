@@ -64,16 +64,29 @@ public:
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
     void setPick(const Pick &myPick);
 	//void GenericWorker::setPick(const RoboCompRCISMousePicker::Pick&);
+            const float limite = 100;
+        const float threshold = 400;
+        float limRot = 0.006; //limite rotacion
+        float rot=0.7, angulo;
+        float X, Z;
+        float posx, posz;
+        double distancia;
 
 
 public slots:
-	void compute(); 	
+	void compute(); 
+	void directo();	
+	void gotoTarget();
+	void laserRandon();
+	void bug();
+	bool obstacle();
+	bool targetAtSight();
 	
 private:
    // Target target;
    InnerModel* inner;
-   enum class State {INIT, SEARCH, STOP, CONTROLLER};
-   State state = State::INIT;
+   enum class State {IDLE, GOTO, BUG};
+   State state = State::IDLE;
   
 	
 };

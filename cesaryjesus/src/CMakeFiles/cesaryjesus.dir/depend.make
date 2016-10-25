@@ -14,6 +14,7 @@ src/CMakeFiles/cesaryjesus.dir/Laser.cpp.o: src/Laser.h
 src/CMakeFiles/cesaryjesus.dir/RCISMousePicker.cpp.o: src/RCISMousePicker.cpp
 src/CMakeFiles/cesaryjesus.dir/RCISMousePicker.cpp.o: src/RCISMousePicker.h
 
+src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/cesaryjesus_automoc.cpp
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/commonbehaviorI.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/genericmonitor.h
@@ -27,7 +28,6 @@ src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/moc_specificworker
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/rcismousepickerI.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/specificmonitor.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/specificworker.h
-src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: /opt/robocomp/include/innermodel/innermodel.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: /opt/robocomp/include/qmat/QMatAll
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: /opt/robocomp/include/qmat/qcamera.h
@@ -475,11 +475,11 @@ src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/cesaryjesus_automoc.cpp.o: src/ui_mainUI.h
 
+src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/commonbehaviorI.cpp
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/commonbehaviorI.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/genericmonitor.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/genericworker.h
-src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: /usr/include/qt4/Qt3Support/q3cstring.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: /usr/include/qt4/Qt3Support/q3valuelist.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: /usr/include/qt4/QtCore/QDate
@@ -912,11 +912,11 @@ src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/commonbehaviorI.cpp.o: src/ui_mainUI.h
 
+src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/genericmonitor.cpp
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/genericmonitor.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/genericworker.h
-src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: /usr/include/qt4/Qt3Support/q3cstring.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: /usr/include/qt4/Qt3Support/q3valuelist.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: /usr/include/qt4/QtCore/QDate
@@ -1348,10 +1348,10 @@ src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/Laser.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/cesaryjesus.dir/genericmonitor.cpp.o: src/ui_mainUI.h
 
+src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: src/genericworker.cpp
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: src/genericworker.h
-src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: /usr/include/qt4/Qt3Support/q3cstring.h
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: /usr/include/qt4/Qt3Support/q3valuelist.h
 src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.o: /usr/include/qt4/QtCore/QDate
@@ -2134,6 +2134,8 @@ src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rappl
 src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o: /usr/include/qt4/QtCore/qwaitcondition.h
 src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o: /usr/include/qt4/QtCore/qxmlstream.h
 
+src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
+src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /home/salabeta/robocomp/classes/rapplication/rapplication.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/commonbehaviorI.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/genericmonitor.h
@@ -2141,8 +2143,6 @@ src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/genericworker.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/main.cpp
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/specificmonitor.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/specificworker.h
-src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
-src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /home/salabeta/robocomp/classes/rapplication/rapplication.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /opt/robocomp/include/innermodel/innermodel.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /opt/robocomp/include/qmat/QMatAll
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: /opt/robocomp/include/qmat/qcamera.h
@@ -2590,10 +2590,10 @@ src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/rcismousepickerI.h
 src/CMakeFiles/cesaryjesus.dir/main.cpp.o: src/ui_mainUI.h
 
+src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: src/genericworker.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: src/rcismousepickerI.cpp
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: src/rcismousepickerI.h
-src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: /usr/include/qt4/Qt3Support/q3cstring.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: /usr/include/qt4/Qt3Support/q3valuelist.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: /usr/include/qt4/QtCore/QDate
@@ -3026,12 +3026,12 @@ src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/rcismousepickerI.cpp.o: src/ui_mainUI.h
 
+src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/config.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/genericmonitor.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/genericworker.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/specificmonitor.cpp
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/specificmonitor.h
-src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: /usr/include/qt4/Qt3Support/q3cstring.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: /usr/include/qt4/Qt3Support/q3valuelist.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: /usr/include/qt4/QtCore/QDate
@@ -3463,9 +3463,9 @@ src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/Laser.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/RCISMousePicker.h
 src/CMakeFiles/cesaryjesus.dir/specificmonitor.cpp.o: src/ui_mainUI.h
 
+src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: src/specificworker.cpp
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: src/specificworker.h
-src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: /home/salabeta/robocomp/classes/qlog/qlog.h
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: /opt/robocomp/include/innermodel/innermodel.h
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: /opt/robocomp/include/qmat/QMatAll
 src/CMakeFiles/cesaryjesus.dir/specificworker.cpp.o: /opt/robocomp/include/qmat/qcamera.h
