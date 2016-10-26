@@ -59,7 +59,7 @@ void SpecificWorker::compute()
       laserRandon();
     if ( target.active )
       state = State::GIRO;
-      if (lado == true)
+      //if (lado == true)
 	state = State::GOTO;
       break;
     
@@ -189,7 +189,7 @@ void SpecificWorker::directo(){
                                 }
                         }
                         laserini=true;
-			lado = true;
+			//lado = true;
 		  
 		}
             			  
