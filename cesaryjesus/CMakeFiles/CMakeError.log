@@ -889,3 +889,102 @@ int main(int argc, char** argv)
 #endif
 }
 
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_63b21/fast"
+/usr/bin/make -f CMakeFiles/cmTC_63b21.dir/build.make CMakeFiles/cmTC_63b21.dir/build
+make[1]: se entra en el directorio '/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_63b21.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_63b21.dir/CheckSymbolExists.cxx.o -c /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+   return ((int*)(&Q_WS_WIN))[argc];
+                   ^
+CMakeFiles/cmTC_63b21.dir/build.make:65: fallo en las instrucciones para el objetivo 'CMakeFiles/cmTC_63b21.dir/CheckSymbolExists.cxx.o'
+make[1]: *** [CMakeFiles/cmTC_63b21.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: se sale del directorio '/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_63b21/fast'
+make: *** [cmTC_63b21/fast] Error 2
+
+File /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_24fb7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_24fb7.dir/build.make CMakeFiles/cmTC_24fb7.dir/build
+make[1]: se entra en el directorio '/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_24fb7.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_24fb7.dir/CheckSymbolExists.cxx.o -c /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+   return ((int*)(&Q_WS_QWS))[argc];
+                   ^
+CMakeFiles/cmTC_24fb7.dir/build.make:65: fallo en las instrucciones para el objetivo 'CMakeFiles/cmTC_24fb7.dir/CheckSymbolExists.cxx.o'
+make[1]: *** [CMakeFiles/cmTC_24fb7.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: se sale del directorio '/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_24fb7/fast'
+make: *** [cmTC_24fb7/fast] Error 2
+
+File /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fbbdb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fbbdb.dir/build.make CMakeFiles/cmTC_fbbdb.dir/build
+make[1]: se entra en el directorio '/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fbbdb.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_fbbdb.dir/CheckSymbolExists.cxx.o -c /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+   return ((int*)(&Q_WS_MAC))[argc];
+                   ^
+CMakeFiles/cmTC_fbbdb.dir/build.make:65: fallo en las instrucciones para el objetivo 'CMakeFiles/cmTC_fbbdb.dir/CheckSymbolExists.cxx.o'
+make[1]: *** [CMakeFiles/cmTC_fbbdb.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: se sale del directorio '/home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_fbbdb/fast'
+make: *** [cmTC_fbbdb/fast] Error 2
+
+File /home/salabeta/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

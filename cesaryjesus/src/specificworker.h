@@ -85,7 +85,7 @@ public slots:
 private:
    // Target target;
    InnerModel* inner;
-   enum class State {IDLE, GOTO, BUG};
+   enum class State {IDLE, GOTO, BUG, GIRO};
    State state = State::IDLE;
   
 	

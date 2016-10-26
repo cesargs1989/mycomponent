@@ -40,7 +40,6 @@ SpecificWorker::~SpecificWorker()
 bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
 
-
         timer.start ( Period );
         return true;
 }
@@ -49,76 +48,67 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 void SpecificWorker::compute()
 {
 
-    laserRandon();
-
     RoboCompDifferentialRobot :: TBaseState bState;
 
     differentialrobot_proxy->getBaseState(bState);
     inner->updateTransformValuesS("base", bState.x, 0, bState.z ,0, bState.alpha, 0);
-    
+          
     switch(state)
     {    
     case State::IDLE:
+      laserRandon();
     if ( target.active )
+      state = State::GIRO;
+      if (lado == true)
+	state = State::GOTO;
+      break;
+    
+    case State::GIRO:
+      
       directo();
-      state = State::GOTO;
       break;
     
     case State::GOTO:
+      //qDebug()<<"entra2";
       gotoTarget();
+      //if (obstacle()==false)
+	
       break;
       
     case State::BUG:
       bug();
       break;
-    }
+
+    default:
+      break;
+          }
   
   
 }
 
 
 
-void SpecificWorker::gotoTarget()
-
- {
+void SpecificWorker::gotoTarget(){
    
-
     if( obstacle() == true)   // If ther is an obstacle ahead, then transit to BUG
-
    {
-
       state = State::BUG;
-			    differentialrobot_proxy->setSpeedBase ( 0, 0 ); // velocidad robot
-
       return;
-
    }
-   else
-       directo();
-
-
+     
     QVec rt = inner->transform("base", target.getPose(), "world");
-
     float dist = rt.norm2();
-
     float ang  = atan2(rt.x(), rt.z());
-
    if(dist < 100)          // If close to obstacle stop and transit to IDLE
 
   {
-
     state = State::IDLE;
-
     target.setActive(true);
-
    return;
-
   }
 
   float adv = dist;
-
   if ( fabs( rot) > 0.05 )
-
    adv = 0;
 
  }
@@ -181,7 +171,7 @@ void SpecificWorker::directo(){
                                 Z = sin ( bState.alpha ) * ( posx - bState.x ) +  cos ( bState.alpha ) * ( posz - bState.x ) ;
 
                                 angulo = atan2 ( X, Z );
-								angulo=abs(angulo);
+				angulo=abs(angulo);
 
                                 if ( angulo <= limRot ) {
                                         differentialrobot_proxy->stopBase();
@@ -194,12 +184,15 @@ void SpecificWorker::directo(){
                                 if ( distancia <= limite ) {
                                         target.setActive ( false );
                                         girando=false;
+					//state = State::IDLE;  
                                         differentialrobot_proxy->stopBase();
                                 }
                         }
-                        laserini=true;          
+                        laserini=true;
+			lado = true;
+		  
 		}
-                
+            			  
         } catch ( const Ice::Exception &ex ) {
                 std::cout << ex << std::endl;
         }
