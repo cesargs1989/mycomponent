@@ -1,0 +1,12 @@
+rcnode
+
+
+
+cd robocomp/files/innermodel/
+rcis simpleworld.xml
+
+
+
+cd robotica/mycomponent/cesaryjesus/    (cambia en funcion de...)
+bin/cesaryjesus --Ice.Config=etc/config
+
