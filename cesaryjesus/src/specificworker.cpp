@@ -189,10 +189,10 @@ bool SpecificWorker::targetAtSight ( TLaserData ldata )
 
 float SpecificWorker::obstaculoEnIzquierda ( const TLaserData& tlaser )
 {
-        float min = tlaser[85].dist;
+        float min = tlaser[90].dist;
         for ( int i= 1; i<5; i++ ) {
-                if ( tlaser[85+i].dist < min ) {
-                        min = tlaser[85+i].dist;
+                if ( tlaser[90+i].dist < min ) {
+                        min = tlaser[90+i].dist;
                 }
         }
         return min;
