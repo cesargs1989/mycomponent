@@ -22,74 +22,68 @@
        @author authorname
 */
 
+
+
+
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
 #include <genericworker.h>
 #include <innermodel/innermodel.h>
-#include <qmat/QMatAll>
-#include <math.h>
 
 
 class SpecificWorker : public GenericWorker
 {
-Q_OBJECT
-public:
-	struct Target{
-	    bool active = false;
-	    mutable QMutex m;
-	    QVec pose;
-	    
-	    void setActive(bool v){
-	     QMutexLocker ml(&m);
-	     active = v;
-	    }
-	    
-	    void copy(float x, float z){
-		QMutexLocker ml(&m);
-	        pose[0]=x;
-			pose[1]=z;
-	    }
-	    QVec getPose(){
-			QMutexLocker ml(&m);
-			return pose;
-		
-	    }
-	}target;
-	//InnerModel inner = new InnerModel();
-	bool girando = true;
-	bool laserini = true;
-	SpecificWorker(MapPrx& mprx);	
-	~SpecificWorker();
-	bool setParams(RoboCompCommonBehavior::ParameterList params);
-    void setPick(const Pick &myPick);
-	//void GenericWorker::setPick(const RoboCompRCISMousePicker::Pick&);
-            const float limite = 100;
-        const float threshold = 400;
-        float limRot = 0.006; //limite rotacion
-        float rot=0.7, angulo;
-        float X, Z;
-        float posx, posz;
-        double distancia;
+ Q_OBJECT
+ 
+  public:
+      SpecificWorker(MapPrx& mprx);	
+      ~SpecificWorker();
+      bool setParams(RoboCompCommonBehavior::ParameterList params);
+      void setPick(const Pick &mypick);
 
+  public slots:
+    void compute(); 	
 
-public slots:
-	void compute(); 
-	void directo();	
-	void gotoTarget();
-	void laserRandon();
-	void bug();
-	bool obstacle();
-	bool targetAtSight();
-	
-private:
-   // Target target;
-   InnerModel* inner;
-   enum class State {IDLE, GOTO, BUG, GIRO};
-   State state = State::IDLE;
-  
-	
+  private:    
+    enum class State {INIT,GOTO,BUG,END, BUGINIT};
+    struct Target
+    {
+      mutable QMutex m;
+      QVec pose = QVec::zeros(3);
+    
+      float angl;
+      bool active = false;
+      void setActive(bool newActive){
+	QMutexLocker lm(&m);
+	active = newActive;
+    }
+      void copy(float x, float z){
+	QMutexLocker lm(&m);
+	pose.setItem(0,x);
+	pose.setItem(1,0);
+	pose.setItem(2,z);
+      }
+      QVec getPose(){
+	QMutexLocker lm(&m);
+	return pose;
+      }
+    };
+
+    
+    InnerModel* innerModel;
+    State state = State::INIT;
+    Target pick;
+    void laserRandom(int threshold,RoboCompLaser::TLaserData ldata);
+    void movement(const TLaserData &tLaser);
+    bool obstacle(TLaserData tLaser);
+    void bug( const TLaserData& ldata );
+    bool targetAtSight(TLaserData ldata);
+    void buginit( const TLaserData& ldata );
+    void stopRobot();
+    float obstaculoEnIzquierda( const TLaserData& tlaser);
+    float obstacleDerecha( const TLaserData& tlaser);
+
 };
 
 #endif
-

@@ -23,10 +23,7 @@
 */
 SpecificWorker::SpecificWorker ( MapPrx& mprx ) : GenericWorker ( mprx )
 {
-
-   this->inner= new InnerModel("/home/salabeta/robocomp/files/innermodel/simpleworld.xml");
-  
-  
+        state = State::INIT;
 }
 
 /**
@@ -39,200 +36,204 @@ SpecificWorker::~SpecificWorker()
 
 bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
-
+        innerModel= new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/simpleworld.xml" );
         timer.start ( Period );
+
         return true;
 }
 
+void SpecificWorker::laserRandom ( int threshold, TLaserData ldata )
+{
+        float rot = 0.7;
+
+        if ( ldata[12].dist < threshold ) {
+                std::cout << ldata[12].dist << std::endl;
+                if ( ldata[12].angle > 0 ) {
+                        differentialrobot_proxy->setSpeedBase ( 5, -rot );
+                        usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
+                } else {
+                        differentialrobot_proxy->setSpeedBase ( 5, rot );
+                        usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
+                }
+
+        }
+}
 
 void SpecificWorker::compute()
 {
 
-    RoboCompDifferentialRobot :: TBaseState bState;
-
-    differentialrobot_proxy->getBaseState(bState);
-    inner->updateTransformValuesS("base", bState.x, 0, bState.z ,0, bState.alpha, 0);
-          
-    switch(state)
-    {    
-    case State::IDLE:
-      laserRandon();
-    if ( target.active )
-      state = State::GIRO;
-      //if (lado == true)
-	state = State::GOTO;
-      break;
-    
-    case State::GIRO:
-      
-      directo();
-      break;
-    
-    case State::GOTO:
-      //qDebug()<<"entra2";
-      gotoTarget();
-      //if (obstacle()==false)
-	
-      break;
-      
-    case State::BUG:
-      bug();
-      break;
-
-    default:
-      break;
-          }
-  
-  
-}
-
-
-
-void SpecificWorker::gotoTarget(){
-   
-    if( obstacle() == true)   // If ther is an obstacle ahead, then transit to BUG
-   {
-      state = State::BUG;
-      return;
-   }
-     
-    QVec rt = inner->transform("base", target.getPose(), "world");
-    float dist = rt.norm2();
-    float ang  = atan2(rt.x(), rt.z());
-   if(dist < 100)          // If close to obstacle stop and transit to IDLE
-
-  {
-    state = State::IDLE;
-    target.setActive(true);
-   return;
-  }
-
-  float adv = dist;
-  if ( fabs( rot) > 0.05 )
-   adv = 0;
-
- }
-void SpecificWorker::bug()
-
-{
-
-}
-
-bool SpecificWorker::obstacle()
-{
-
-  	RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
-        std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
-                return     a.dist < b.dist;
-        } ) ; //sort laser data from small t				
-	if ( ldata[12].dist < threshold ) {
-	  return true;
-	}
-	else 
-	  return false;
-}
-
-bool SpecificWorker::targetAtSight()
-
-{
-
-}
-
-
-
-void SpecificWorker::setPick ( const Pick &myPick )
-{
-        target.copy ( myPick.x, myPick.z );
-        target.setActive ( true );
-        girando = false;
-	laserini = false;
-}
-
-void SpecificWorker::directo(){
-  
-
-        //QVec posdst;
-
-        RoboCompDifferentialRobot :: TBaseState bState;
-        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
-        std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
-                return     a.dist < b.dist;
-        } ) ; //sort laser data from small to
         try {
-                if ( target.active ) {
-                        differentialrobot_proxy-> getBaseState ( bState );
 
-                        posz=target.getPose().getItem ( 1 );
-                        posx=target.getPose().getItem ( 0 );
+                RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
+                RoboCompDifferentialRobot::TBaseState bState;
+                differentialrobot_proxy->getBaseState ( bState );
+                innerModel->updateTransformValues ( "base", bState.x, 0, bState.z, 0, bState.alpha, 0 );
 
-                        if ( !girando ) {
 
-                                X = cos ( bState.alpha ) * ( posx - bState.x ) + ( -sin ( bState.alpha ) * ( posz - bState.z ) );
-                                Z = sin ( bState.alpha ) * ( posx - bState.x ) +  cos ( bState.alpha ) * ( posz - bState.x ) ;
-
-                                angulo = atan2 ( X, Z );
-				angulo=abs(angulo);
-
-                                if ( angulo <= limRot ) {
-                                        differentialrobot_proxy->stopBase();
-                                        girando = true;
-                                } else
-                                        differentialrobot_proxy->setSpeedBase ( 0, angulo );
-                        } else if ( girando ) {
-                                distancia = sqrt ( ( ( posx - bState.x ) * ( posx - bState.x ) ) + ( ( posz - bState.z ) * ( posz - bState.z ) ) );
-                                differentialrobot_proxy->setSpeedBase ( 500,0 );
-                                if ( distancia <= limite ) {
-                                        target.setActive ( false );
-                                        girando=false;
-					//state = State::IDLE;  
-                                        differentialrobot_proxy->stopBase();
-                                }
-                        }
-                        laserini=true;
-			//lado = true;
-		  
-		}
-            			  
+                switch ( state ) {
+                case State::INIT:
+                        if ( pick.active )
+                                state=State::GOTO;
+                        break;
+                case State::GOTO:
+                        movement ( ldata );
+                        break;
+                case State::BUGINIT:
+                        buginit ( ldata );
+                        break;
+                case State::BUG:
+                        bug ( ldata );
+                        break;
+                case State::END:
+                        break;
+                }
         } catch ( const Ice::Exception &ex ) {
                 std::cout << ex << std::endl;
         }
-  
-  
 }
 
-void SpecificWorker::laserRandon(){
-          RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();  //read laser data
-        std::sort ( ldata.begin() +8, ldata.end()-8, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
+void SpecificWorker::movement ( const TLaserData &tLaser )
+{
+        QVec tr = innerModel->transform ( "base",pick.getPose(),"world" );
+
+        float angulo = atan2 ( tr.x(),tr.z() );
+		//angulo = abs ( angulo );
+        float distance = tr.norm2();
+
+        if ( distance <= 100 ) {
+                pick.setActive ( false );
+                state= State::INIT;
+                differentialrobot_proxy->stopBase();
+                return;
+        }
+
+        if ( obstacle ( tLaser ) ) {
+                state=State::BUGINIT;
+                return;
+        }
+
+        if ( distance > 300 ) distance = 300;
+
+        differentialrobot_proxy->setSpeedBase ( distance, angulo );
+
+}
+
+
+void SpecificWorker::buginit ( const TLaserData& ldata )
+{
+        if ( obstacle ( ldata ) == false ) {
+
+                state = State::BUG;
+                return;
+        } else {
+
+                differentialrobot_proxy->setSpeedBase (50, 0.5 );
+        	
+		}
+}
+
+
+void SpecificWorker::bug ( const TLaserData &ldata )
+{
+        const float alpha = log ( 0.1 ) /log ( 0.3 ); //amortigua /corte
+
+        if ( targetAtSight ( ldata ) ) { //TODO CAMBIAR POR CROSSLINE
+                state = State::GOTO;
+                return;
+        }
+
+        if ( obstacle ( ldata ) ) {
+                state = State::BUGINIT;
+                return;
+        }
+
+        float distD = obstacleDerecha ( ldata );
+        float distI = obstaculoEnIzquierda ( ldata );
+
+        qDebug() << " derecha: "<<distD;
+        qDebug() << " izquierda: "<< distI;
+        //vr = -( 1.0/800 ) * dist + 0.5;
+
+        float vrot =  - ( ( 1./ ( 1. + exp ( - ( distI - 450. ) ) ) )-1./2. );
+
+
+
+
+        float dist = 350 * exp ( - ( fabs ( vrot ) * alpha ) ); // QLin2D
+        
+        differentialrobot_proxy->setSpeedBase ( dist ,vrot/2 );
+
+
+}
+
+
+
+
+bool SpecificWorker::targetAtSight ( TLaserData ldata )
+{
+        QPolygon poly;
+        for ( auto l: ldata ) {
+                QVec r = innerModel->laserTo ( "world","laser",l.dist,l.angle );
+                QPoint p ( r.x(),r.z() );
+                poly<<p;
+
+        }
+        return poly.containsPoint ( QPoint ( pick.getPose().x(),pick.getPose().z() ), Qt::OddEvenFill );
+
+}
+
+
+
+
+
+
+float SpecificWorker::obstaculoEnIzquierda ( const TLaserData& tlaser )
+{
+        float min = tlaser[85].dist;
+        for ( int i= 1; i<5; i++ ) {
+                if ( tlaser[85+i].dist < min ) {
+                        min = tlaser[85+i].dist;
+                }
+        }
+        return min;
+}
+
+float SpecificWorker::obstacleDerecha ( const TLaserData& tlaser )
+{
+        float max = tlaser[90].dist;
+        for ( int i= 1; i<5; i++ ) {
+                if ( tlaser[90-i].dist > max ) {
+                        max = tlaser[90-i].dist;
+                }
+        }
+        return max;
+}
+
+void SpecificWorker::stopRobot()
+{
+
+        differentialrobot_proxy->stopBase();
+
+}
+
+bool SpecificWorker::obstacle ( TLaserData tLaser )
+{
+
+
+        std::sort ( tLaser.begin() +27, tLaser.end()-27, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
                 return     a.dist < b.dist;
-        } ) ; //sort laser data from small to
-	if (laserini == true || !target.active){				
+        } ) ; //sort laser data from small to large distances using a lambda function.
 
-	    if ( ldata[12].dist < threshold ) {
-		    //std::cout << ldata.front().dist << std::endl;
-		    if ( ldata[12].angle > 0 ) {
+        return ( tLaser[27].dist < 420 );
 
-			    differentialrobot_proxy->setSpeedBase ( 5, -rot );
-			    usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
-		    } else {
-			    differentialrobot_proxy->setSpeedBase ( 5, rot );
-			    usleep ( rand() % ( 1500000-100000 + 1 ) + 100000 ); //random wait between 1.5s and 0.1sec
-		    }
-	    } else {
-		    differentialrobot_proxy->setSpeedBase ( 500, 0 ); // velocidad robot
-	    }
-	}
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
+void SpecificWorker::setPick ( const Pick &mypick )
+{
+        qDebug() <<mypick.x<<mypick.z;
+        pick.copy ( mypick.x,-mypick.z );
+        pick.setActive ( true );
+        state = State::INIT;
+}
 
