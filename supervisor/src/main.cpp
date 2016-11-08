@@ -18,11 +18,11 @@
  */
 
 
-/** \mainpage RoboComp::cesaryjesus
+/** \mainpage RoboComp::supervisor
  *
  * \section intro_sec Introduction
  *
- * The cesaryjesus component...
+ * The supervisor component...
  *
  * \section interface_sec Interface
  *
@@ -34,7 +34,7 @@
  * ...
  *
  * \subsection install2_ssec Compile and install
- * cd cesaryjesus
+ * cd supervisor
  * <br>
  * cmake . && make
  * <br>
@@ -52,7 +52,7 @@
  *
  * \subsection execution_ssec Execution
  *
- * Just: "${PATH_TO_BINARY}/cesaryjesus --Ice.Config=${PATH_TO_CONFIG_FILE}"
+ * Just: "${PATH_TO_BINARY}/supervisor --Ice.Config=${PATH_TO_CONFIG_FILE}"
  *
  * \subsection running_ssec Once running
  *
@@ -80,12 +80,7 @@
 #include "specificmonitor.h"
 #include "commonbehaviorI.h"
 
-#include <gotopointI.h>
-#include <rcismousepickerI.h>
 
-#include <RCISMousePicker.h>
-#include <DifferentialRobot.h>
-#include <Laser.h>
 #include <GotoPoint.h>
 
 
@@ -95,17 +90,14 @@
 using namespace std;
 using namespace RoboCompCommonBehavior;
 
-using namespace RoboCompRCISMousePicker;
-using namespace RoboCompDifferentialRobot;
-using namespace RoboCompLaser;
 using namespace RoboCompGotoPoint;
 
 
 
-class cesaryjesus : public RoboComp::Application
+class supervisor : public RoboComp::Application
 {
 public:
-	cesaryjesus (QString prfx) { prefix = prfx.toStdString(); }
+	supervisor (QString prfx) { prefix = prfx.toStdString(); }
 private:
 	void initialize();
 	std::string prefix;
@@ -115,14 +107,14 @@ public:
 	virtual int run(int, char*[]);
 };
 
-void ::cesaryjesus::initialize()
+void ::supervisor::initialize()
 {
 	// Config file properties read example
 	// configGetString( PROPERTY_NAME_1, property1_holder, PROPERTY_1_DEFAULT_VALUE );
 	// configGetInt( PROPERTY_NAME_2, property1_holder, PROPERTY_2_DEFAULT_VALUE );
 }
 
-int ::cesaryjesus::run(int argc, char* argv[])
+int ::supervisor::run(int argc, char* argv[])
 {
 #ifdef USE_QTGUI
 	QApplication a(argc, argv);  // GUI application
@@ -142,8 +134,7 @@ int ::cesaryjesus::run(int argc, char* argv[])
 
 	int status=EXIT_SUCCESS;
 
-	LaserPrx laser_proxy;
-	DifferentialRobotPrx differentialrobot_proxy;
+	GotoPointPrx gotopoint_proxy;
 
 	string proxy, tmp;
 	initialize();
@@ -151,38 +142,20 @@ int ::cesaryjesus::run(int argc, char* argv[])
 
 	try
 	{
-		if (not GenericMonitor::configGetString(communicator(), prefix, "LaserProxy", proxy, ""))
+		if (not GenericMonitor::configGetString(communicator(), prefix, "GotoPointProxy", proxy, ""))
 		{
-			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy LaserProxy\n";
+			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy GotoPointProxy\n";
 		}
-		laser_proxy = LaserPrx::uncheckedCast( communicator()->stringToProxy( proxy ) );
+		gotopoint_proxy = GotoPointPrx::uncheckedCast( communicator()->stringToProxy( proxy ) );
 	}
 	catch(const Ice::Exception& ex)
 	{
 		cout << "[" << PROGRAM_NAME << "]: Exception: " << ex;
 		return EXIT_FAILURE;
 	}
-	rInfo("LaserProxy initialized Ok!");
-	mprx["LaserProxy"] = (::IceProxy::Ice::Object*)(&laser_proxy);//Remote server proxy creation example
+	rInfo("GotoPointProxy initialized Ok!");
+	mprx["GotoPointProxy"] = (::IceProxy::Ice::Object*)(&gotopoint_proxy);//Remote server proxy creation example
 
-
-	try
-	{
-		if (not GenericMonitor::configGetString(communicator(), prefix, "DifferentialRobotProxy", proxy, ""))
-		{
-			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy DifferentialRobotProxy\n";
-		}
-		differentialrobot_proxy = DifferentialRobotPrx::uncheckedCast( communicator()->stringToProxy( proxy ) );
-	}
-	catch(const Ice::Exception& ex)
-	{
-		cout << "[" << PROGRAM_NAME << "]: Exception: " << ex;
-		return EXIT_FAILURE;
-	}
-	rInfo("DifferentialRobotProxy initialized Ok!");
-	mprx["DifferentialRobotProxy"] = (::IceProxy::Ice::Object*)(&differentialrobot_proxy);//Remote server proxy creation example
-
-	IceStorm::TopicManagerPrx topicManager = IceStorm::TopicManagerPrx::checkedCast(communicator()->propertyToProxy("TopicManager.Proxy"));
 
 
 	SpecificWorker *worker = new SpecificWorker(mprx);
@@ -215,48 +188,8 @@ int ::cesaryjesus::run(int argc, char* argv[])
 
 
 
-		// Server adapter creation and publication
-		if (not GenericMonitor::configGetString(communicator(), prefix, "GotoPoint.Endpoints", tmp, ""))
-		{
-			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy GotoPoint";
-		}
-		Ice::ObjectAdapterPtr adapterGotoPoint = communicator()->createObjectAdapterWithEndpoints("GotoPoint", tmp);
-		GotoPointI *gotopoint = new GotoPointI(worker);
-		adapterGotoPoint->add(gotopoint, communicator()->stringToIdentity("gotopoint"));
-		adapterGotoPoint->activate();
-		cout << "[" << PROGRAM_NAME << "]: GotoPoint adapter created in port " << tmp << endl;
 
 
-
-
-
-		// Server adapter creation and publication
-		if (not GenericMonitor::configGetString(communicator(), prefix, "RCISMousePickerTopic.Endpoints", tmp, ""))
-		{
-			cout << "[" << PROGRAM_NAME << "]: Can't read configuration for proxy RCISMousePickerProxy";
-		}
-		Ice::ObjectAdapterPtr RCISMousePicker_adapter = communicator()->createObjectAdapterWithEndpoints("rcismousepicker", tmp);
-		RCISMousePickerPtr rcismousepickerI_ = new RCISMousePickerI(worker);
-		Ice::ObjectPrx rcismousepicker = RCISMousePicker_adapter->addWithUUID(rcismousepickerI_)->ice_oneway();
-		IceStorm::TopicPrx rcismousepicker_topic;
-		if(!rcismousepicker_topic){
-		try {
-			rcismousepicker_topic = topicManager->create("RCISMousePicker");
-		}
-		catch (const IceStorm::TopicExists&) {
-		//Another client created the topic
-		try{
-			rcismousepicker_topic = topicManager->retrieve("RCISMousePicker");
-		}
-		catch(const IceStorm::NoSuchTopic&)
-		{
-			//Error. Topic does not exist
-			}
-		}
-		IceStorm::QoS qos;
-		rcismousepicker_topic->subscribeAndGetPublisher(qos, rcismousepicker);
-		}
-		RCISMousePicker_adapter->activate();
 
 		// Server adapter creation and publication
 		cout << SERVER_FULL_NAME " started" << endl;
@@ -321,7 +254,7 @@ int main(int argc, char* argv[])
 			printf("Configuration prefix: <%s>\n", prefix.toStdString().c_str());
 		}
 	}
-	::cesaryjesus app(prefix);
+	::supervisor app(prefix);
 
 	return app.main(argc, argv, configFile.c_str());
 }

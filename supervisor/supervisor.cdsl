@@ -1,0 +1,12 @@
+import "/robocomp/interfaces/IDSLs/GotoPoint.idsl";
+
+Component supervisor
+{
+	Communications
+	{
+		requires GotoPoint;
+	};
+	language Cpp;
+	gui Qt(QWidget);
+};
+

@@ -41,6 +41,11 @@ class SpecificWorker : public GenericWorker
       ~SpecificWorker();
       bool setParams(RoboCompCommonBehavior::ParameterList params);
       void setPick(const Pick &mypick);
+      virtual void go(const string &nodo, const float x, const float y, const float alpha);
+      virtual void turn(const float speed);
+      virtual bool atTarget();
+      virtual void stop();
+     
 
   public slots:
     void compute(); 	

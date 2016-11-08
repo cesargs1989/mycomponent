@@ -229,6 +229,9 @@ bool SpecificWorker::obstacle ( TLaserData tLaser )
 
 }
 
+///////////////////////////////////////////////777
+//////////////////////////////////////////////////
+
 void SpecificWorker::setPick ( const Pick &mypick )
 {
         qDebug() <<mypick.x<<mypick.z;
@@ -236,4 +239,24 @@ void SpecificWorker::setPick ( const Pick &mypick )
         pick.setActive ( true );
         state = State::INIT;
 }
+
+
+bool SpecificWorker::atTarget()
+{
+
+}
+void SpecificWorker::go(const string& nodo, const float x, const float y, const float alpha)
+{
+
+}
+void SpecificWorker::stop()
+{
+}
+void SpecificWorker::turn(const float speed)
+{
+
+}
+
+
+
 

@@ -1,7 +1,8 @@
 # Hashes of file build rules.
 f465baec6a182a1e214c00e85d7319de src/CMakeFiles/cesaryjesus_automoc
-d8b80fe7122e4b35f165107d6a122874 src/CommonBehavior.cpp
-6535ce9b1825c356201cb6d8a35fe9d0 src/DifferentialRobot.cpp
-d6192b8d7257dea07d816a275c82a1e1 src/Laser.cpp
-61dc112bae80acd5d5144fdadc67478d src/RCISMousePicker.cpp
+0df4a41cdf3b6b1a3aec549e95714a34 src/CommonBehavior.cpp
+b9f97064001102fd4e028c0d4f628b8a src/DifferentialRobot.cpp
+ca80245098c5840b8e9f8690aee5dbda src/GotoPoint.cpp
+2733ea2e1aa082086c81c7d07ab3e844 src/Laser.cpp
+6f60ccdd6ef9883145a72adec3f820b3 src/RCISMousePicker.cpp
 f5809765f4365d692ae0141db3df0c75 src/ui_mainUI.h

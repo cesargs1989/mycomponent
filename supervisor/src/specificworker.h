@@ -42,11 +42,6 @@ public:
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
 
-	void go(const string &nodo, const float x, const float y, const float alpha);
-	void turn(const float speed);
-	bool atTarget();
-	void stop();
-	void setPick(const Pick &myPick);
 
 public slots:
 	void compute(); 	

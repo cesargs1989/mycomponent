@@ -227,6 +227,33 @@ DifferentialRobot.cpp.s:
 	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/DifferentialRobot.cpp.s
 .PHONY : DifferentialRobot.cpp.s
 
+GotoPoint.o: GotoPoint.cpp.o
+
+.PHONY : GotoPoint.o
+
+# target to build an object file
+GotoPoint.cpp.o:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/GotoPoint.cpp.o
+.PHONY : GotoPoint.cpp.o
+
+GotoPoint.i: GotoPoint.cpp.i
+
+.PHONY : GotoPoint.i
+
+# target to preprocess a source file
+GotoPoint.cpp.i:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/GotoPoint.cpp.i
+.PHONY : GotoPoint.cpp.i
+
+GotoPoint.s: GotoPoint.cpp.s
+
+.PHONY : GotoPoint.s
+
+# target to generate assembly for a file
+GotoPoint.cpp.s:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/GotoPoint.cpp.s
+.PHONY : GotoPoint.cpp.s
+
 Laser.o: Laser.cpp.o
 
 .PHONY : Laser.o
@@ -389,59 +416,32 @@ genericworker.cpp.s:
 	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/genericworker.cpp.s
 .PHONY : genericworker.cpp.s
 
-home/salabeta/robocomp/classes/qlog/qlog.o: home/salabeta/robocomp/classes/qlog/qlog.cpp.o
+gotopointI.o: gotopointI.cpp.o
 
-.PHONY : home/salabeta/robocomp/classes/qlog/qlog.o
-
-# target to build an object file
-home/salabeta/robocomp/classes/qlog/qlog.cpp.o:
-	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o
-.PHONY : home/salabeta/robocomp/classes/qlog/qlog.cpp.o
-
-home/salabeta/robocomp/classes/qlog/qlog.i: home/salabeta/robocomp/classes/qlog/qlog.cpp.i
-
-.PHONY : home/salabeta/robocomp/classes/qlog/qlog.i
-
-# target to preprocess a source file
-home/salabeta/robocomp/classes/qlog/qlog.cpp.i:
-	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.i
-.PHONY : home/salabeta/robocomp/classes/qlog/qlog.cpp.i
-
-home/salabeta/robocomp/classes/qlog/qlog.s: home/salabeta/robocomp/classes/qlog/qlog.cpp.s
-
-.PHONY : home/salabeta/robocomp/classes/qlog/qlog.s
-
-# target to generate assembly for a file
-home/salabeta/robocomp/classes/qlog/qlog.cpp.s:
-	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.s
-.PHONY : home/salabeta/robocomp/classes/qlog/qlog.cpp.s
-
-home/salabeta/robocomp/classes/rapplication/rapplication.o: home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o
-
-.PHONY : home/salabeta/robocomp/classes/rapplication/rapplication.o
+.PHONY : gotopointI.o
 
 # target to build an object file
-home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o:
-	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o
-.PHONY : home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o
+gotopointI.cpp.o:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/gotopointI.cpp.o
+.PHONY : gotopointI.cpp.o
 
-home/salabeta/robocomp/classes/rapplication/rapplication.i: home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i
+gotopointI.i: gotopointI.cpp.i
 
-.PHONY : home/salabeta/robocomp/classes/rapplication/rapplication.i
+.PHONY : gotopointI.i
 
 # target to preprocess a source file
-home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i:
-	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i
-.PHONY : home/salabeta/robocomp/classes/rapplication/rapplication.cpp.i
+gotopointI.cpp.i:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/gotopointI.cpp.i
+.PHONY : gotopointI.cpp.i
 
-home/salabeta/robocomp/classes/rapplication/rapplication.s: home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s
+gotopointI.s: gotopointI.cpp.s
 
-.PHONY : home/salabeta/robocomp/classes/rapplication/rapplication.s
+.PHONY : gotopointI.s
 
 # target to generate assembly for a file
-home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s:
-	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s
-.PHONY : home/salabeta/robocomp/classes/rapplication/rapplication.cpp.s
+gotopointI.cpp.s:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/gotopointI.cpp.s
+.PHONY : gotopointI.cpp.s
 
 main.o: main.cpp.o
 
@@ -469,6 +469,60 @@ main.s: main.cpp.s
 main.cpp.s:
 	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+opt/robocomp/classes/qlog/qlog.o: opt/robocomp/classes/qlog/qlog.cpp.o
+
+.PHONY : opt/robocomp/classes/qlog/qlog.o
+
+# target to build an object file
+opt/robocomp/classes/qlog/qlog.cpp.o:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/opt/robocomp/classes/qlog/qlog.cpp.o
+.PHONY : opt/robocomp/classes/qlog/qlog.cpp.o
+
+opt/robocomp/classes/qlog/qlog.i: opt/robocomp/classes/qlog/qlog.cpp.i
+
+.PHONY : opt/robocomp/classes/qlog/qlog.i
+
+# target to preprocess a source file
+opt/robocomp/classes/qlog/qlog.cpp.i:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/opt/robocomp/classes/qlog/qlog.cpp.i
+.PHONY : opt/robocomp/classes/qlog/qlog.cpp.i
+
+opt/robocomp/classes/qlog/qlog.s: opt/robocomp/classes/qlog/qlog.cpp.s
+
+.PHONY : opt/robocomp/classes/qlog/qlog.s
+
+# target to generate assembly for a file
+opt/robocomp/classes/qlog/qlog.cpp.s:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/opt/robocomp/classes/qlog/qlog.cpp.s
+.PHONY : opt/robocomp/classes/qlog/qlog.cpp.s
+
+opt/robocomp/classes/rapplication/rapplication.o: opt/robocomp/classes/rapplication/rapplication.cpp.o
+
+.PHONY : opt/robocomp/classes/rapplication/rapplication.o
+
+# target to build an object file
+opt/robocomp/classes/rapplication/rapplication.cpp.o:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/opt/robocomp/classes/rapplication/rapplication.cpp.o
+.PHONY : opt/robocomp/classes/rapplication/rapplication.cpp.o
+
+opt/robocomp/classes/rapplication/rapplication.i: opt/robocomp/classes/rapplication/rapplication.cpp.i
+
+.PHONY : opt/robocomp/classes/rapplication/rapplication.i
+
+# target to preprocess a source file
+opt/robocomp/classes/rapplication/rapplication.cpp.i:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/opt/robocomp/classes/rapplication/rapplication.cpp.i
+.PHONY : opt/robocomp/classes/rapplication/rapplication.cpp.i
+
+opt/robocomp/classes/rapplication/rapplication.s: opt/robocomp/classes/rapplication/rapplication.cpp.s
+
+.PHONY : opt/robocomp/classes/rapplication/rapplication.s
+
+# target to generate assembly for a file
+opt/robocomp/classes/rapplication/rapplication.cpp.s:
+	cd /home/salabeta/robotica/mycomponent/cesaryjesus && $(MAKE) -f src/CMakeFiles/cesaryjesus.dir/build.make src/CMakeFiles/cesaryjesus.dir/opt/robocomp/classes/rapplication/rapplication.cpp.s
+.PHONY : opt/robocomp/classes/rapplication/rapplication.cpp.s
 
 rcismousepickerI.o: rcismousepickerI.cpp.o
 
@@ -570,6 +624,9 @@ help:
 	@echo "... DifferentialRobot.o"
 	@echo "... DifferentialRobot.i"
 	@echo "... DifferentialRobot.s"
+	@echo "... GotoPoint.o"
+	@echo "... GotoPoint.i"
+	@echo "... GotoPoint.s"
 	@echo "... Laser.o"
 	@echo "... Laser.i"
 	@echo "... Laser.s"
@@ -588,15 +645,18 @@ help:
 	@echo "... genericworker.o"
 	@echo "... genericworker.i"
 	@echo "... genericworker.s"
-	@echo "... home/salabeta/robocomp/classes/qlog/qlog.o"
-	@echo "... home/salabeta/robocomp/classes/qlog/qlog.i"
-	@echo "... home/salabeta/robocomp/classes/qlog/qlog.s"
-	@echo "... home/salabeta/robocomp/classes/rapplication/rapplication.o"
-	@echo "... home/salabeta/robocomp/classes/rapplication/rapplication.i"
-	@echo "... home/salabeta/robocomp/classes/rapplication/rapplication.s"
+	@echo "... gotopointI.o"
+	@echo "... gotopointI.i"
+	@echo "... gotopointI.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... opt/robocomp/classes/qlog/qlog.o"
+	@echo "... opt/robocomp/classes/qlog/qlog.i"
+	@echo "... opt/robocomp/classes/qlog/qlog.s"
+	@echo "... opt/robocomp/classes/rapplication/rapplication.o"
+	@echo "... opt/robocomp/classes/rapplication/rapplication.i"
+	@echo "... opt/robocomp/classes/rapplication/rapplication.s"
 	@echo "... rcismousepickerI.o"
 	@echo "... rcismousepickerI.i"
 	@echo "... rcismousepickerI.s"

@@ -1,11 +1,13 @@
 import "/robocomp/interfaces/RCISMousePicker.idsl";
 import "/robocomp/interfaces/IDSLs/DifferentialRobot.idsl";
 import "/robocomp/interfaces/IDSLs/Laser.idsl";
+import "/robocomp/interdaces/IDSLs/GotoPoint.idsl";
 
 Component cesaryjesus{
     Communications{
         requires DifferentialRobot, Laser;
 	subscribesTo RCISMousePicker;
+	implements GotoPoint;
     };
 gui Qt(QWidget);
 language Cpp; //language Python;
