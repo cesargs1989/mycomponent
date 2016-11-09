@@ -1,5 +1,11 @@
+CommonBehavior.Endpoints=tcp -p 10101
 # Endpoints for subscriptions
+
 RCISMousePickerTopic.Endpoints=tcp -p 10015
+
+# Endpoints for implemented interfaces
+GotoPoint.Endpoints=tcp -p 10090
+
 
 CommonBehavior.Endpoints=tcp -p 11000
 # Proxies for required interfaces
