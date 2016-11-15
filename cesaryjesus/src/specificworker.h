@@ -52,6 +52,7 @@ class SpecificWorker : public GenericWorker
 
   private:    
     enum class State {INIT,GOTO,BUG,END, BUGINIT};
+	enum class Estado {BUSCAR,IR,PARAR};
     struct Target
     {
       mutable QMutex m;
@@ -69,15 +70,15 @@ class SpecificWorker : public GenericWorker
 	pose.setItem(1,0);
 	pose.setItem(2,z);
       }
-      QVec getPose(){
+      QVec getPose(){ 
 	QMutexLocker lm(&m);
 	return pose;
       }
     };
 
-    
     InnerModel* innerModel;
     State state = State::INIT;
+	Estado estado = Estado::BUSCAR;
     Target pick;
     void laserRandom(int threshold,RoboCompLaser::TLaserData ldata);
     void movement(const TLaserData &tLaser);
