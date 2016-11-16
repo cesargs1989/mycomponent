@@ -21,7 +21,7 @@
 /**
 * \brief Default constructor
 */
-SpecificWorker::SpecificWorker(MapPrx& mprx) : GenericWorker(mprx)
+SpecificWorker::SpecificWorker ( MapPrx& mprx ) : GenericWorker ( mprx )
 {
 
 }
@@ -31,19 +31,19 @@ SpecificWorker::SpecificWorker(MapPrx& mprx) : GenericWorker(mprx)
 */
 SpecificWorker::~SpecificWorker()
 {
-	
+
 }
 
-bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
+bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
 
 
 
-	
-	timer.start(Period);
-	
 
-	return true;
+        timer.start ( Period );
+
+
+        return true;
 }
 
 void SpecificWorker::compute()
@@ -56,8 +56,36 @@ void SpecificWorker::compute()
 // 	}
 // 	catch(const Ice::Exception &e)
 // 	{
-// 		std::cout << "Error reading from Camera" << e << std::endl;
-// 	}
+// 		std::cout << "Error reading from Camera" << e << std::end
+        switch ( estado )	{
+        case Estado::BUSCAR:
+                turn();
+                break;
+        case Estado::IR:
+                go();
+                break;
+        case Estado::PARAR:
+                stop();
+                break;
+        }
+}
+
+}
+
+bool SpecificWorker::atTarget()
+{
+        return false;
+}
+void SpecificWorker::go ( const string& nodo, const float x, const float y, const float alpha )
+{
+
+}
+void SpecificWorker::stop()
+{
+}
+void SpecificWorker::turn ( const float speed )
+{
+
 }
 
 

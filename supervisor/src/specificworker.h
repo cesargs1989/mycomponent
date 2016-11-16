@@ -22,12 +22,6 @@
        @author authorname
 */
 
-
-
-
-
-
-
 #ifndef SPECIFICWORKER_H
 #define SPECIFICWORKER_H
 
@@ -47,8 +41,43 @@ public slots:
 	void compute(); 	
 
 private:
+	enum class Estado {BUSCAR,IR,PARAR};
+	Estado estado = Estado::BUSCAR;
+	struct Tag{
+		mutable QMutex m;
+		int id;
+		InnerModel *inner;
+		QVec pose;
+		
+		void init(InnerModel *innev){
+				inner = innev;
+		}	
+
+		void copy(int x, int z, int _id){
+			QMutexLocker lm(&m);
+			pose=inner->transform("world",QVec::vec3(x,0,z),"base"); 
+			id = _id;
+		}
+
+};Tag tag;
+
+bool atTarget();
+void go ( const string& nodo, const float x, const float y, const float alpha );
+void stop();
+void turn ( const float speed );
 	
 };
+/*
+ *	InnerModel *inne;
+	Qvec pose;
+	getInit(Inermodel *innev_);
+		inner=innev_;
+	void copy(x,z,id)
+	id = id_;
+	psoe=inne->transtf("world",Qvec.vec3(x,0,z),"base"); 
+ * 
+ * 
+ */
 
 #endif
 
