@@ -59,32 +59,30 @@ void SpecificWorker::compute()
 // 		std::cout << "Error reading from Camera" << e << std::end
         switch ( estado )	{
         case Estado::BUSCAR:
-                turn();
+                //turn();
                 break;
         case Estado::IR:
-                go();
+                //go();
                 break;
         case Estado::PARAR:
-                stop();
+               // stop();
                 break;
         }
 }
 
-}
 
-bool SpecificWorker::atTarget()
-{
+bool SpecificWorker::atTarget(){
         return false;
 }
-void SpecificWorker::go ( const string& nodo, const float x, const float y, const float alpha )
-{
+
+void SpecificWorker::go ( const string& nodo, const float x, const float y, const float alpha ){
 
 }
-void SpecificWorker::stop()
-{
+void SpecificWorker::stop(){
+
+	
 }
-void SpecificWorker::turn ( const float speed )
-{
+void SpecificWorker::turn ( const float speed ){
 
 }
 
