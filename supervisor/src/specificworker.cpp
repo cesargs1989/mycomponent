@@ -71,22 +71,6 @@ void SpecificWorker::compute()
 }
 
 
-bool SpecificWorker::atTarget(){
-        return false;
-}
-
-void SpecificWorker::go ( const string& nodo, const float x, const float y, const float alpha ){
-
-}
-void SpecificWorker::stop(){
-
-	
-}
-void SpecificWorker::turn ( const float speed ){
-
-}
-
-
 
 
 
