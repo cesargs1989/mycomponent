@@ -77,18 +77,22 @@ class SpecificWorker : public GenericWorker
     };
 
     InnerModel* innerModel;
+    QLine2D linea;
+float distanciaAnterior;
     State state = State::INIT;
 	Estado estado = Estado::BUSCAR;
     Target pick;
     void laserRandom(int threshold,RoboCompLaser::TLaserData ldata);
     void movement(const TLaserData &tLaser);
     bool obstacle(TLaserData tLaser);
-    void bug( const TLaserData& ldata );
+    void bug( const TLaserData& ldata, const TBaseState &bState );
     bool targetAtSight(TLaserData ldata);
-    void buginit( const TLaserData& ldata );
+    void buginit( const TLaserData& ldata, const TBaseState& bState );
+    float distanceToLine(const TBaseState& bState);
     void stopRobot();
     float obstaculoEnIzquierda( const TLaserData& tlaser);
     float obstacleDerecha( const TLaserData& tlaser);
+    float obstaculoEnDerecha ( const TLaserData& tlaser );
 
 };
 

@@ -38,7 +38,8 @@ public:
 
 
 public slots:
-	void compute(); 	
+	void compute(); 
+	
 
 private:
 	enum class Estado {BUSCAR,IR,PARAR};

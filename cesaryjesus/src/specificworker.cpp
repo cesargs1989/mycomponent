@@ -1,3 +1,4 @@
+
 /*
  *    Copyright (C) 2016 by YOUR NAME HERE
  *
@@ -36,7 +37,7 @@ SpecificWorker::~SpecificWorker()
 
 bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
-        innerModel= new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/simpleworld.xml" );
+        innerModel= new InnerModel ( "/home/salabeta/robocomp/files/innermodel/simpleworld.xml" );
         timer.start ( Period );
 
         return true;
@@ -68,38 +69,27 @@ void SpecificWorker::compute()
                 RoboCompDifferentialRobot::TBaseState bState;
                 differentialrobot_proxy->getBaseState ( bState );
                 innerModel->updateTransformValues ( "base", bState.x, 0, bState.z, 0, bState.alpha, 0 );
-
+QVec ini(3);
                 switch ( state ) {
                 case State::INIT:
-                        if ( pick.active )
+                        if ( pick.active ){
                                 state=State::GOTO;
+				linea = QLine2D(ini,pick.getPose());
+			}
                         break;
                 case State::GOTO:
                         movement ( ldata );
                         break;
                 case State::BUGINIT:
-                        buginit ( ldata );
+                        buginit ( ldata , bState);
                         break;
                 case State::BUG:
-                        bug ( ldata );
+                        bug ( ldata, bState );
                         break;
                 case State::END:
                         break;
                 }
 
-                if ( !pick.active )	{
-                        switch ( estado )	{
-                        case Estado::BUSCAR:
-                                turn();
-                                break;
-                        case Estado::IR:
-                                go();
-                                break;
-                        case Estado::PARAR:
-                                stop();
-                                break;
-                        }
-                }
         } catch ( const Ice::Exception &ex ) {
                 std::cout << ex << std::endl;
         }
@@ -139,44 +129,67 @@ void SpecificWorker::movement ( const TLaserData &tLaser )
 }
 
 
-void SpecificWorker::buginit ( const TLaserData& ldata )
+void SpecificWorker::buginit ( const TLaserData& ldata, const TBaseState& bState)
 {
+   QVec posi = QVec::vec3(bState.x, 0., bState.z);
+    distanciaAnterior = fabs(linea.perpendicularDistanceToPoint(posi));
         if ( !obstacle ( ldata ) ) {
                 state = State::BUG;
                 return;
         }
-        try {
-                differentialrobot_proxy->setSpeedBase ( 70, 0.5 );
-
-        } catch ( const Ice::Exception &ex ) {
-                std::cout << ex << std::endl;
-        }
+          try
+  {
+      differentialrobot_proxy->setSpeedBase(0, 0.3);
+  }
+  catch ( const Ice::Exception &ex ) {  std::cout << ex << std::endl; }
 
 }
 
 
-void SpecificWorker::bug ( const TLaserData &ldata )
+void SpecificWorker::bug ( const TLaserData &ldata,const TBaseState &bState)
 {
         const float alpha = log ( 0.1 ) /log ( 0.3 ); //amortigua /corte
+	float diffToline = distanceToLine(bState);
         float distI = obstaculoEnIzquierda ( ldata );
 
-        if ( targetAtSight ( ldata ) ) { //TODO CAMBIAR POR CROSSLINE
-                state = State::GOTO;
-                return;
-        }
+    QVec tr = innerModel->transform ( "base",pick.getPose(),"world" );
+    float distance = tr.norm2();
+    if ( distance <= 200 )
+    {
+        pick.setActive ( false );
+	qDebug() << "FINISH: BUG TO INIT";
+        state= State::INIT;
+        differentialrobot_proxy->stopBase();
+	return;
+    }
+    
+    //TODO girando hacia target (enfocando) si hay caja entra en bug
+    
+    if ( targetAtSight ( ldata ) && diffToline <= 0 )  // Target a la vista y terminando de bordear
+     {
+        state = State::GOTO;
+ 	qDebug() << "from BUG to GOTO";
+        return;
+     }
+    
+    if ( obstacle (ldata) ){ // Obstaculo
+      state = State::BUGINIT;
+      qDebug() << "from BUG to BUGINIT";
+      return;
+    }
 
-        if ( obstacle ( ldata ) ) {
-                state = State::BUGINIT;
-                return;
-        }
 
 
-        float vrot =  - ( ( 1./ ( 1. + exp ( - 0.2* ( distI - 450. ) ) ) )-1./2. );
+        float vrot =  - ( ( 1./ ( 1. + exp ( - 0.1*( distI - 450. ) ) ) )-1./2. );
 
-        float dist = 380 * exp ( - ( fabs ( vrot ) * alpha ) ); // QLin2D
+        float dist = 350 * exp ( - ( fabs ( vrot ) * alpha ) ); // QLin2D
 
         differentialrobot_proxy->setSpeedBase ( dist ,vrot );
 
+	        if ( targetAtSight ( ldata ) ) { //TODO CAMBIAR POR CROSSLINE
+                state = State::GOTO;
+                return;
+        }
 
 }
 
@@ -193,7 +206,7 @@ bool SpecificWorker::targetAtSight ( TLaserData ldata )
         }
         QVec targetInRobot = innerModel->transform ( "base", pick.getPose(), "world" );
         float dist = targetInRobot.norm2();
-        int veces = int ( dist / 200 ); //number of times the robot semilength fits in the robot-to-target distance
+        int veces = int ( dist / 150 ); //number of times the robot semilength fits in the robot-to-target distance
         float landa = 1./veces;
 
         QList<QPoint> points;
@@ -205,10 +218,10 @@ bool SpecificWorker::targetAtSight ( TLaserData ldata )
                 QVec pointW = innerModel->transform ( "world", point ,"base" );
                 points << QPoint ( pointW.x(), pointW.z() );
 
-                pointW = innerModel->transform ( "world", point - QVec::vec3 ( 200,0,0 ), "base" );
+                pointW = innerModel->transform ( "world", point - QVec::vec3 ( 250,0,0 ), "base" );
                 points << QPoint ( pointW.x(), pointW.z() );
 
-                pointW = innerModel->transform ( "world", point + QVec::vec3 ( 200,0,0 ), "base" );
+                pointW = innerModel->transform ( "world", point + QVec::vec3 ( 250,0,0 ), "base" );
                 points << QPoint ( pointW.x(), pointW.z() );
 
         }
@@ -222,7 +235,18 @@ bool SpecificWorker::targetAtSight ( TLaserData ldata )
 
 
 
-
+float SpecificWorker::distanceToLine(const TBaseState& bState)
+{
+  QVec posi = QVec::zeros(3);
+  posi.setItem(0,bState.x);
+  posi.setItem(2,bState.z);
+  float distanciaEnPunto = fabs(linea.perpendicularDistanceToPoint(posi));
+  float diff = distanciaEnPunto- distanciaAnterior;
+//  qDebug()<< diff<< "en crossedLine";
+  
+  distanciaAnterior = distanciaEnPunto;
+  return diff;
+}  
 
 
 float SpecificWorker::obstaculoEnIzquierda ( const TLaserData& tlaser )
@@ -250,11 +274,11 @@ bool SpecificWorker::obstacle ( TLaserData tLaser )
 {
 
 
-        std::sort ( tLaser.begin() +30, tLaser.end()-30, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
+        std::sort ( tLaser.begin() +35, tLaser.end()-35, [] ( RoboCompLaser::TData a, RoboCompLaser::TData b ) {
                 return     a.dist < b.dist;
         } ) ; //sort laser data from small to large distances using a lambda function.
 
-        return ( tLaser[30].dist < 380 );
+        return ( tLaser[35].dist < 320 );
 
 
 }
@@ -265,7 +289,7 @@ bool SpecificWorker::obstacle ( TLaserData tLaser )
 void SpecificWorker::setPick ( const Pick &mypick )
 {
         qDebug() <<mypick.x<<mypick.z;
-        pick.copy ( mypick.x,-mypick.z );
+        pick.copy ( mypick.x,mypick.z );
         pick.setActive ( true );
         state = State::INIT;
 }
@@ -277,16 +301,20 @@ bool SpecificWorker::atTarget()
 }
 void SpecificWorker::go ( const string& nodo, const float x, const float y, const float alpha )
 {
+    pick.copy(x,y);
+    pick.setActive ( true );
+    state = State::INIT;
 
 }
 void SpecificWorker::stop()
 {
+          try {
+                differentialrobot_proxy->stopBase();
+        } catch ( const Ice::Exception &ex ) {
+                std::cout << ex << std::endl;
+        }
 }
 void SpecificWorker::turn ( const float speed )
 {
 
 }
-
-
-
-
