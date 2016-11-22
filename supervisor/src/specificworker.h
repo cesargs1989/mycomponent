@@ -61,11 +61,6 @@ private:
 
 };Tag tag;
 
-bool atTarget();
-void go ( const string& nodo, const float x, const float y, const float alpha );
-void stop();
-void turn ( const float speed );
-	
 };
 /*
  *	InnerModel *inne;
