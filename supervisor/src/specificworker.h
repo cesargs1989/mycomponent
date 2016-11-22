@@ -35,11 +35,12 @@ public:
 	SpecificWorker(MapPrx& mprx);	
 	~SpecificWorker();
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
-
+	void newAprilTag(const tagsList &tags);
+	InnerModel *iner;
 
 public slots:
 	void compute(); 	
-
+	
 private:
 	enum class Estado {BUSCAR,IR,PARAR};
 	Estado estado = Estado::BUSCAR;
@@ -58,8 +59,9 @@ private:
 			pose=inner->transform("world",QVec::vec3(x,0,z),"base"); 
 			id = _id;
 		}
-
+		
 };Tag tag;
+
 
 };
 /*
