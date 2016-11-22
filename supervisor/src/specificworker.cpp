@@ -34,12 +34,10 @@ SpecificWorker::~SpecificWorker()
 
 }
 
-bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
-{
+bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params ){
 
 
-
-
+		iner = new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/simpleworld.xml" );
         timer.start ( Period );
 
 
@@ -68,8 +66,12 @@ void SpecificWorker::compute()
                // stop();
                 break;
         }
-}
+}	
 
+void SpecificWorker::newAprilTag ( const tagsList &tags )
+{
+	tag.copy(tags[0].tx,tags[0].tz,tags[0].id);
+}
 
 
 
