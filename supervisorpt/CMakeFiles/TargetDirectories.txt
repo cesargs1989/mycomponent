@@ -1,0 +1,3 @@
+/home/salabeta/robotica/mycomponent/supervisorpt/CMakeFiles/edit_cache.dir
+/home/salabeta/robotica/mycomponent/supervisorpt/CMakeFiles/rebuild_cache.dir
+/home/salabeta/robotica/mycomponent/supervisorpt/CMakeFiles/ui_mainUI.dir
