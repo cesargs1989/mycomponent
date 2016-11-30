@@ -29,6 +29,7 @@ QObject()
 
 {
 	gotopoint_proxy = (*(GotoPointPrx*)mprx["GotoPointProxy"]);
+	differentialrobot_proxy = (*(DifferentialRobotPrx*)mprx["DifferentialRobotProxy"]);
 
 
 	mutex = new QMutex(QMutex::Recursive);

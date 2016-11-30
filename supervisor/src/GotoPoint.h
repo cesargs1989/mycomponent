@@ -85,6 +85,9 @@ typedef ::IceUtil::Handle< Callback_GotoPoint_go_Base> Callback_GotoPoint_goPtr;
 class Callback_GotoPoint_turn_Base : virtual public ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_GotoPoint_turn_Base> Callback_GotoPoint_turnPtr;
 
+class Callback_GotoPoint_stop_Base : virtual public ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_GotoPoint_stop_Base> Callback_GotoPoint_stopPtr;
+
 class Callback_GotoPoint_atTarget_Base : virtual public ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_GotoPoint_atTarget_Base> Callback_GotoPoint_atTargetPtr;
 
@@ -237,6 +240,76 @@ private:
 
     void turn(::Ice::Float, const ::Ice::Context*);
     ::Ice::AsyncResultPtr begin_turn(::Ice::Float, const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
+    
+public:
+
+    void stop()
+    {
+        stop(0);
+    }
+    void stop(const ::Ice::Context& __ctx)
+    {
+        stop(&__ctx);
+    }
+#ifdef ICE_CPP11
+    ::Ice::AsyncResultPtr
+    begin_stop(const ::IceInternal::Function<void ()>& __response, const ::IceInternal::Function<void (const ::Ice::Exception&)>& __exception = ::IceInternal::Function<void (const ::Ice::Exception&)>(), const ::IceInternal::Function<void (bool)>& __sent = ::IceInternal::Function<void (bool)>())
+    {
+        return begin_stop(0, new ::IceInternal::Cpp11FnOnewayCallbackNC(__response, __exception, __sent));
+    }
+    ::Ice::AsyncResultPtr
+    begin_stop(const ::IceInternal::Function<void (const ::Ice::AsyncResultPtr&)>& __completed, const ::IceInternal::Function<void (const ::Ice::AsyncResultPtr&)>& __sent = ::IceInternal::Function<void (const ::Ice::AsyncResultPtr&)>())
+    {
+        return begin_stop(0, ::Ice::newCallback(__completed, __sent), 0);
+    }
+    ::Ice::AsyncResultPtr
+    begin_stop(const ::Ice::Context& __ctx, const ::IceInternal::Function<void ()>& __response, const ::IceInternal::Function<void (const ::Ice::Exception&)>& __exception = ::IceInternal::Function<void (const ::Ice::Exception&)>(), const ::IceInternal::Function<void (bool)>& __sent = ::IceInternal::Function<void (bool)>())
+    {
+        return begin_stop(&__ctx, new ::IceInternal::Cpp11FnOnewayCallbackNC(__response, __exception, __sent), 0);
+    }
+    ::Ice::AsyncResultPtr
+    begin_stop(const ::Ice::Context& __ctx, const ::IceInternal::Function<void (const ::Ice::AsyncResultPtr&)>& __completed, const ::IceInternal::Function<void (const ::Ice::AsyncResultPtr&)>& __sent = ::IceInternal::Function<void (const ::Ice::AsyncResultPtr&)>())
+    {
+        return begin_stop(&__ctx, ::Ice::newCallback(__completed, __sent));
+    }
+#endif
+
+    ::Ice::AsyncResultPtr begin_stop()
+    {
+        return begin_stop(0, ::IceInternal::__dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_stop(const ::Ice::Context& __ctx)
+    {
+        return begin_stop(&__ctx, ::IceInternal::__dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_stop(const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_stop(0, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_stop(const ::Ice::Context& __ctx, const ::Ice::CallbackPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_stop(&__ctx, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_stop(const ::RoboCompGotoPoint::Callback_GotoPoint_stopPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_stop(0, __del, __cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_stop(const ::Ice::Context& __ctx, const ::RoboCompGotoPoint::Callback_GotoPoint_stopPtr& __del, const ::Ice::LocalObjectPtr& __cookie = 0)
+    {
+        return begin_stop(&__ctx, __del, __cookie);
+    }
+
+    void end_stop(const ::Ice::AsyncResultPtr&);
+    
+private:
+
+    void stop(const ::Ice::Context*);
+    ::Ice::AsyncResultPtr begin_stop(const ::Ice::Context*, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& __cookie = 0);
     
 public:
 
@@ -480,6 +553,8 @@ public:
 
     virtual void turn(::Ice::Float, const ::Ice::Context*, ::IceInternal::InvocationObserver&) = 0;
 
+    virtual void stop(const ::Ice::Context*, ::IceInternal::InvocationObserver&) = 0;
+
     virtual bool atTarget(const ::Ice::Context*, ::IceInternal::InvocationObserver&) = 0;
 };
 
@@ -502,6 +577,8 @@ public:
 
     virtual void turn(::Ice::Float, const ::Ice::Context*, ::IceInternal::InvocationObserver&);
 
+    virtual void stop(const ::Ice::Context*, ::IceInternal::InvocationObserver&);
+
     virtual bool atTarget(const ::Ice::Context*, ::IceInternal::InvocationObserver&);
 };
 
@@ -523,6 +600,8 @@ public:
     virtual void go(const ::std::string&, ::Ice::Float, ::Ice::Float, ::Ice::Float, const ::Ice::Context*, ::IceInternal::InvocationObserver&);
 
     virtual void turn(::Ice::Float, const ::Ice::Context*, ::IceInternal::InvocationObserver&);
+
+    virtual void stop(const ::Ice::Context*, ::IceInternal::InvocationObserver&);
 
     virtual bool atTarget(const ::Ice::Context*, ::IceInternal::InvocationObserver&);
 };
@@ -551,6 +630,9 @@ public:
 
     virtual void turn(::Ice::Float, const ::Ice::Current& = ::Ice::Current()) = 0;
     ::Ice::DispatchStatus ___turn(::IceInternal::Incoming&, const ::Ice::Current&);
+
+    virtual void stop(const ::Ice::Current& = ::Ice::Current()) = 0;
+    ::Ice::DispatchStatus ___stop(::IceInternal::Incoming&, const ::Ice::Current&);
 
     virtual bool atTarget(const ::Ice::Current& = ::Ice::Current()) = 0;
     ::Ice::DispatchStatus ___atTarget(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -743,6 +825,88 @@ template<class T, typename CT> Callback_GotoPoint_turnPtr
 newCallback_GotoPoint_turn(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_GotoPoint_turn<T, CT>(instance, 0, excb, sentcb);
+}
+
+template<class T>
+class CallbackNC_GotoPoint_stop : public Callback_GotoPoint_stop_Base, public ::IceInternal::OnewayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)();
+
+    CallbackNC_GotoPoint_stop(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+template<class T> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_GotoPoint_stop<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_GotoPoint_stop<T>(instance, 0, excb, sentcb);
+}
+
+template<class T> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_GotoPoint_stop<T>(instance, cb, excb, sentcb);
+}
+
+template<class T> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_GotoPoint_stop<T>(instance, 0, excb, sentcb);
+}
+
+template<class T, typename CT>
+class Callback_GotoPoint_stop : public Callback_GotoPoint_stop_Base, public ::IceInternal::OnewayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(const CT&);
+
+    Callback_GotoPoint_stop(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+template<class T, typename CT> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_GotoPoint_stop<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_GotoPoint_stop<T, CT>(instance, 0, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_GotoPoint_stop<T, CT>(instance, cb, excb, sentcb);
+}
+
+template<class T, typename CT> Callback_GotoPoint_stopPtr
+newCallback_GotoPoint_stop(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_GotoPoint_stop<T, CT>(instance, 0, excb, sentcb);
 }
 
 template<class T>

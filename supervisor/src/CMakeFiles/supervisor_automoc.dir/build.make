@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/salabeta/robotica/mycomponent/supervisor
+CMAKE_SOURCE_DIR = /home/jesusuiano/robotica/mycomponent/supervisor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/salabeta/robotica/mycomponent/supervisor
+CMAKE_BINARY_DIR = /home/jesusuiano/robotica/mycomponent/supervisor
 
 # Utility rule file for supervisor_automoc.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/salabeta/robotica/mycomponent/supervisor
 include src/CMakeFiles/supervisor_automoc.dir/progress.make
 
 src/CMakeFiles/supervisor_automoc:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robotica/mycomponent/supervisor/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc for target supervisor"
-	cd /home/salabeta/robotica/mycomponent/supervisor/src && /usr/bin/cmake -E cmake_autogen /home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor_automoc.dir/ ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jesusuiano/robotica/mycomponent/supervisor/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic moc for target supervisor"
+	cd /home/jesusuiano/robotica/mycomponent/supervisor/src && /usr/bin/cmake -E cmake_autogen /home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor_automoc.dir/ ""
 
 supervisor_automoc: src/CMakeFiles/supervisor_automoc
 supervisor_automoc: src/CMakeFiles/supervisor_automoc.dir/build.make
@@ -68,10 +68,10 @@ src/CMakeFiles/supervisor_automoc.dir/build: supervisor_automoc
 .PHONY : src/CMakeFiles/supervisor_automoc.dir/build
 
 src/CMakeFiles/supervisor_automoc.dir/clean:
-	cd /home/salabeta/robotica/mycomponent/supervisor/src && $(CMAKE_COMMAND) -P CMakeFiles/supervisor_automoc.dir/cmake_clean.cmake
+	cd /home/jesusuiano/robotica/mycomponent/supervisor/src && $(CMAKE_COMMAND) -P CMakeFiles/supervisor_automoc.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/supervisor_automoc.dir/clean
 
 src/CMakeFiles/supervisor_automoc.dir/depend:
-	cd /home/salabeta/robotica/mycomponent/supervisor && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salabeta/robotica/mycomponent/supervisor /home/salabeta/robotica/mycomponent/supervisor/src /home/salabeta/robotica/mycomponent/supervisor /home/salabeta/robotica/mycomponent/supervisor/src /home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor_automoc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jesusuiano/robotica/mycomponent/supervisor && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jesusuiano/robotica/mycomponent/supervisor /home/jesusuiano/robotica/mycomponent/supervisor/src /home/jesusuiano/robotica/mycomponent/supervisor /home/jesusuiano/robotica/mycomponent/supervisor/src /home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor_automoc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/supervisor_automoc.dir/depend
 

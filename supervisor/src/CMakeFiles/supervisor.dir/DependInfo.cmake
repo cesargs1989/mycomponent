@@ -4,17 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/salabeta/robotica/mycomponent/supervisor/src/CommonBehavior.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/CommonBehavior.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/GotoPoint.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/GotoPoint.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/commonbehaviorI.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/commonbehaviorI.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/genericmonitor.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/genericmonitor.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/genericworker.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/genericworker.cpp.o"
-  "/home/salabeta/robocomp/classes/qlog/qlog.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/home/salabeta/robocomp/classes/qlog/qlog.cpp.o"
-  "/home/salabeta/robocomp/classes/rapplication/rapplication.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/home/salabeta/robocomp/classes/rapplication/rapplication.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/main.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/main.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/specificmonitor.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/specificmonitor.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/specificworker.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/specificworker.cpp.o"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/supervisor_automoc.cpp" "/home/salabeta/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/supervisor_automoc.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/AprilTags.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/AprilTags.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/CommonBehavior.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/CommonBehavior.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/DifferentialRobot.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/DifferentialRobot.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/GotoPoint.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/GotoPoint.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/apriltagsI.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/apriltagsI.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/commonbehaviorI.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/commonbehaviorI.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/genericmonitor.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/genericmonitor.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/genericworker.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/genericworker.cpp.o"
+  "/home/jesusuiano/robocomp/classes/qlog/qlog.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/home/jesusuiano/robocomp/classes/qlog/qlog.cpp.o"
+  "/home/jesusuiano/robocomp/classes/rapplication/rapplication.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/home/jesusuiano/robocomp/classes/rapplication/rapplication.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/main.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/main.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/specificmonitor.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/specificmonitor.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/specificworker.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/specificworker.cpp.o"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/supervisor_automoc.cpp" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CMakeFiles/supervisor.dir/supervisor_automoc.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -40,16 +43,18 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/robocomp/include"
   "/classes"
   "."
-  "/home/salabeta/robocomp/classes"
-  "/home/salabeta/robocomp/libs"
-  "/home/salabeta/robocomp/interfaces"
+  "/home/jesusuiano/robocomp/classes"
+  "/home/jesusuiano/robocomp/libs"
+  "/home/jesusuiano/robocomp/interfaces"
   "/include"
   )
 
 # Pairs of files generated by the same build rule.
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
-  "/home/salabeta/robotica/mycomponent/supervisor/src/CommonBehavior.h" "/home/salabeta/robotica/mycomponent/supervisor/src/CommonBehavior.cpp"
-  "/home/salabeta/robotica/mycomponent/supervisor/src/GotoPoint.h" "/home/salabeta/robotica/mycomponent/supervisor/src/GotoPoint.cpp"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/AprilTags.h" "/home/jesusuiano/robotica/mycomponent/supervisor/src/AprilTags.cpp"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/CommonBehavior.h" "/home/jesusuiano/robotica/mycomponent/supervisor/src/CommonBehavior.cpp"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/DifferentialRobot.h" "/home/jesusuiano/robotica/mycomponent/supervisor/src/DifferentialRobot.cpp"
+  "/home/jesusuiano/robotica/mycomponent/supervisor/src/GotoPoint.h" "/home/jesusuiano/robotica/mycomponent/supervisor/src/GotoPoint.cpp"
   )
 
 

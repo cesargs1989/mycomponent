@@ -65,6 +65,7 @@ public:
 	QMutex *mutex;
 	
 
+	DifferentialRobotPrx differentialrobot_proxy;
 	GotoPointPrx gotopoint_proxy;
 
 	virtual void newAprilTag(const tagsList &tags) = 0;
