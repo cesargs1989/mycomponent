@@ -38,34 +38,61 @@ bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params ){
 
 
 		iner = new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/simpleworld.xml" );
-        timer.start ( Period );
-
+        //timer.start ( Period );
+		current = 0;
 
         return true;
 }
 
 void SpecificWorker::compute()
 {
-// 	try
-// 	{
-// 		camera_proxy->getYImage(0,img, cState, bState);
-// 		memcpy(image_gray.data, &img[0], m_width*m_height*sizeof(uchar));
-// 		searchTags(image_gray);
-// 	}
-// 	catch(const Ice::Exception &e)
-// 	{
-// 		std::cout << "Error reading from Camera" << e << std::end
-        switch ( estado )	{
-        case Estado::BUSCAR:
-                //turn();
-                break;
-        case Estado::IR:
-                //go();
-                break;
-        case Estado::PARAR:
-               // stop();
-                break;
-        }
+	
+ 	try
+ 	{
+	  RoboCompDifferentialRobot::TBaseState bState;
+	  differentialrobot_proxy->getBaseState ( bState );
+	  qDebug()<< bState.x << bState.z;
+	  iner->updateTransformValues ( "base",bState.x,0,bState.z,0,bState.alpha,0 );
+ 	  qDebug()<< current << "current state";
+ 	  switch(estado)
+ 	  {
+ 	    case Estado::BUSCAR:
+ 	      qDebug()<< "State SEARCH" ; 
+ 
+ 	      
+ 	      if (tag.getID() == current)
+ 	      {
+ 		gotopoint_proxy->stop();
+ 		gotopoint_proxy->go("base",tag.getPose().x(),tag.getPose().z(),0);
+ 		estado = Estado::ESPERAR;
+ 		qDebug()<<"State change to WAIT";
+ 	      }else
+ 		gotopoint_proxy->turn(0.6);
+ 	      break;
+ 	    case Estado::ESPERAR:
+ 	      qDebug()<< "State WAIT" ;
+ 	      if (gotopoint_proxy->atTarget() == true )
+ 	      {
+ 		gotopoint_proxy->stop();
+ 		estado = Estado::BUSCAR;
+ 		qDebug()<<"State change to SEARCH";
+ 		current = (current+1)%4;
+ 	      }else if (tag.cambiado())
+ 	      {
+ 		
+ 		
+ 	      }
+ 	      break;
+ 	  }
+ 	
+ 	}
+ 	catch(const Ice::Exception &e)
+ 	{
+ 		std::cout << "Error reading from Camera" << e << std::endl;
+ 	}
+}
+
+
 }	
 
 void SpecificWorker::newAprilTag ( const tagsList &tags )

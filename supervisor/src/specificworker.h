@@ -37,23 +37,21 @@ public:
 	bool setParams(RoboCompCommonBehavior::ParameterList params);
 	void newAprilTag(const tagsList &tags);
 	InnerModel *iner;
-
+	int current = 0;
 public slots:
-
-	void compute(); 
-	
 
 
 	void compute(); 	
 	
 private:
-	enum class Estado {BUSCAR,IR,PARAR};
+	enum class Estado {BUSCAR,ESPERAR};
 	Estado estado = Estado::BUSCAR;
 	struct Tag{
 		mutable QMutex m;
 		int id;
 		InnerModel *inner;
 		QVec pose;
+		QVec poseAnt = QVec::zeros(3);
 		
 		void init(InnerModel *innev){
 				inner = innev;
@@ -64,6 +62,26 @@ private:
 			pose=inner->transform("world",QVec::vec3(x,0,z),"base"); 
 			id = _id;
 		}
+		
+		QVec getPose(){
+			QMutexLocker lm(&m);	
+		return pose;
+		}
+		
+		int getID()
+		{
+		QMutexLocker lm(&m);
+		return id;
+		}
+		
+		bool cambiado()      {
+		if( (pose - poseAnt).norm2() > 100)
+		{
+			poseAnt = pose;
+			return true;
+			}
+			return false;
+		};
 		
 };Tag tag;
 
