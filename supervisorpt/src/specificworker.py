@@ -18,6 +18,7 @@
 #
 
 import sys, os, Ice, traceback, time
+import networkx as nx
 
 from PySide import *
 from genericworker import *
@@ -42,33 +43,48 @@ Ice.loadSlice(preStr+"DifferentialRobot.ice")
 from RoboCompDifferentialRobot import *
 
 
-
 class SpecificWorker(GenericWorker):
 	def __init__(self, proxy_map):
 		super(SpecificWorker, self).__init__(proxy_map)
 		self.timer.timeout.connect(self.compute)
 		self.Period = 2000
 		self.timer.start(self.Period)
+		self.grafo()
 
 	def setParams(self, params):
-		#try:
-		#	par = params["InnerModelPath"]
-		#	innermodel_path=par.value
-		#	innermodel = InnerModel(innermodel_path)
-		#except:
-		#	traceback.print_exc()
-		#	print "Error reading config params"
+
+
 		return True
 
 	@QtCore.Slot()
+	
+	
+	def grafo(self):
+		
+		#creacion del grafo
+		with open ('puntos.txt','r') as f:
+			g=nx.Graph()
+			for line in  f:
+				linea = line.split()
+				if linea[0] == "N" :
+					g.add_node(linea[1],x=linea[2], y =linea[3], tipo=linea[4])
+				elif linea[0] == "E":
+					g.add_edge(linea[1],linea[2])
+		
+		print g.nodes()
+		
+		print nx.shortest_path(g,source="7", target="11") 
+		
+	@QtCore.Slot()
 	def compute(self):
 		print 'SpecificWorker.compute...'
-		#try:
+				#try:
 		#	self.differentialrobot_proxy.setSpeedBase(100, 0)
 		#except Ice.Exception, e:
 		#	traceback.print_exc()
 		#	print e
 		return True
+
 
 
 
