@@ -580,3 +580,59 @@ int main(int argc, char** argv)
 #endif
 }
 
+Determining if the Q_WS_X11 exist passed with the following output:
+Change Dir: /home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2ac14/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2ac14.dir/build.make CMakeFiles/cmTC_2ac14.dir/build
+make[1]: se entra en el directorio '/home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2ac14.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_2ac14.dir/CheckSymbolExists.cxx.o -c /home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_2ac14
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ac14.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_2ac14.dir/CheckSymbolExists.cxx.o  -o cmTC_2ac14 -rdynamic 
+make[1]: se sale del directorio '/home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+
+File /home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_X11 exist passed with the following output:
+Change Dir: /home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_38535/fast"
+/usr/bin/make -f CMakeFiles/cmTC_38535.dir/build.make CMakeFiles/cmTC_38535.dir/build
+make[1]: se entra en el directorio '/home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_38535.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4   -o CMakeFiles/cmTC_38535.dir/CheckSymbolExists.cxx.o -c /home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_38535
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_38535.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_38535.dir/CheckSymbolExists.cxx.o  -o cmTC_38535 -rdynamic 
+make[1]: se sale del directorio '/home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp'
+
+File /home/jesusuiano/robotica/mycomponent/cesaryjesus/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

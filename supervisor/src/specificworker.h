@@ -73,14 +73,14 @@ private:
 	inner = inm;
       
       }
-      void copy(float x, float z,int id_){
+      void copy( float x, float z, int id_){
 	QMutexLocker lm(&m);
 	pose = inner->transform ("world",QVec::vec3(x,0,z),"rgbd");
-	qDebug()<< x<<z << "dir recibidos del april";
+	qDebug()<< x << z << "dir recibidos del april";
 	qDebug()<< pose.x() << pose.z() << "dir recibidos del transform";
 	id = id_;
       }
-      QVec getPose(){
+    QVec getPose(){
 	QMutexLocker lm(&m);
 	return pose;
       }
@@ -89,9 +89,7 @@ private:
 	QMutexLocker lm(&m);
 	return id;
       }
-    }tag;
-    
- 
+    }tag; 
 };
 
 #endif

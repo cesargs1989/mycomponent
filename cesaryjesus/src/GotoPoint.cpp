@@ -44,6 +44,8 @@ const ::std::string __RoboCompGotoPoint__GotoPoint__go_name = "go";
 
 const ::std::string __RoboCompGotoPoint__GotoPoint__turn_name = "turn";
 
+const ::std::string __RoboCompGotoPoint__GotoPoint__stop_name = "stop";
+
 const ::std::string __RoboCompGotoPoint__GotoPoint__atTarget_name = "atTarget";
 
 }
@@ -168,6 +170,55 @@ void
 IceProxy::RoboCompGotoPoint::GotoPoint::end_turn(const ::Ice::AsyncResultPtr& __result)
 {
     __end(__result, __RoboCompGotoPoint__GotoPoint__turn_name);
+}
+
+void
+IceProxy::RoboCompGotoPoint::GotoPoint::stop(const ::Ice::Context* __ctx)
+{
+    ::IceInternal::InvocationObserver __observer(this, __RoboCompGotoPoint__GotoPoint__stop_name, __ctx);
+    int __cnt = 0;
+    while(true)
+    {
+        ::IceInternal::Handle< ::IceDelegate::Ice::Object> __delBase;
+        try
+        {
+            __delBase = __getDelegate(false);
+            ::IceDelegate::RoboCompGotoPoint::GotoPoint* __del = dynamic_cast< ::IceDelegate::RoboCompGotoPoint::GotoPoint*>(__delBase.get());
+            __del->stop(__ctx, __observer);
+            return;
+        }
+        catch(const ::IceInternal::LocalExceptionWrapper& __ex)
+        {
+            __handleExceptionWrapper(__delBase, __ex, __observer);
+        }
+        catch(const ::Ice::LocalException& __ex)
+        {
+            __handleException(__delBase, __ex, true, __cnt, __observer);
+        }
+    }
+}
+
+::Ice::AsyncResultPtr
+IceProxy::RoboCompGotoPoint::GotoPoint::begin_stop(const ::Ice::Context* __ctx, const ::IceInternal::CallbackBasePtr& __del, const ::Ice::LocalObjectPtr& __cookie)
+{
+    ::IceInternal::OutgoingAsyncPtr __result = new ::IceInternal::OutgoingAsync(this, __RoboCompGotoPoint__GotoPoint__stop_name, __del, __cookie);
+    try
+    {
+        __result->__prepare(__RoboCompGotoPoint__GotoPoint__stop_name, ::Ice::Normal, __ctx);
+        __result->__writeEmptyParams();
+        __result->__send(true);
+    }
+    catch(const ::Ice::LocalException& __ex)
+    {
+        __result->__exceptionAsync(__ex);
+    }
+    return __result;
+}
+
+void
+IceProxy::RoboCompGotoPoint::GotoPoint::end_stop(const ::Ice::AsyncResultPtr& __result)
+{
+    __end(__result, __RoboCompGotoPoint__GotoPoint__stop_name);
 }
 
 bool
@@ -326,6 +377,37 @@ IceDelegateM::RoboCompGotoPoint::GotoPoint::turn(::Ice::Float speed, const ::Ice
     {
         __og.abort(__ex);
     }
+    bool __ok = __og.invoke();
+    if(__og.hasResponse())
+    {
+        try
+        {
+            if(!__ok)
+            {
+                try
+                {
+                    __og.throwUserException();
+                }
+                catch(const ::Ice::UserException& __ex)
+                {
+                    ::Ice::UnknownUserException __uue(__FILE__, __LINE__, __ex.ice_name());
+                    throw __uue;
+                }
+            }
+            __og.readEmptyParams();
+        }
+        catch(const ::Ice::LocalException& __ex)
+        {
+            throw ::IceInternal::LocalExceptionWrapper(__ex, false);
+        }
+    }
+}
+
+void
+IceDelegateM::RoboCompGotoPoint::GotoPoint::stop(const ::Ice::Context* __context, ::IceInternal::InvocationObserver& __observer)
+{
+    ::IceInternal::Outgoing __og(__handler.get(), __RoboCompGotoPoint__GotoPoint__stop_name, ::Ice::Normal, __context, __observer);
+    __og.writeEmptyParams();
     bool __ok = __og.invoke();
     if(__og.hasResponse())
     {
@@ -518,6 +600,68 @@ IceDelegateD::RoboCompGotoPoint::GotoPoint::turn(::Ice::Float speed, const ::Ice
     }
 }
 
+void
+IceDelegateD::RoboCompGotoPoint::GotoPoint::stop(const ::Ice::Context* __context, ::IceInternal::InvocationObserver&)
+{
+    class _DirectI : public ::IceInternal::Direct
+    {
+    public:
+
+        _DirectI(const ::Ice::Current& __current) : 
+            ::IceInternal::Direct(__current)
+        {
+        }
+        
+        virtual ::Ice::DispatchStatus
+        run(::Ice::Object* object)
+        {
+            ::RoboCompGotoPoint::GotoPoint* servant = dynamic_cast< ::RoboCompGotoPoint::GotoPoint*>(object);
+            if(!servant)
+            {
+                throw ::Ice::OperationNotExistException(__FILE__, __LINE__, _current.id, _current.facet, _current.operation);
+            }
+            servant->stop(_current);
+            return ::Ice::DispatchOK;
+        }
+        
+    private:
+        
+    };
+    
+    ::Ice::Current __current;
+    __initCurrent(__current, __RoboCompGotoPoint__GotoPoint__stop_name, ::Ice::Normal, __context);
+    try
+    {
+        _DirectI __direct(__current);
+        try
+        {
+            __direct.getServant()->__collocDispatch(__direct);
+        }
+        catch(...)
+        {
+            __direct.destroy();
+            throw;
+        }
+        __direct.destroy();
+    }
+    catch(const ::Ice::SystemException&)
+    {
+        throw;
+    }
+    catch(const ::IceInternal::LocalExceptionWrapper&)
+    {
+        throw;
+    }
+    catch(const ::std::exception& __ex)
+    {
+        ::IceInternal::LocalExceptionWrapper::throwWrapper(__ex);
+    }
+    catch(...)
+    {
+        throw ::IceInternal::LocalExceptionWrapper(::Ice::UnknownException(__FILE__, __LINE__, "unknown c++ exception"), false);
+    }
+}
+
 bool
 IceDelegateD::RoboCompGotoPoint::GotoPoint::atTarget(const ::Ice::Context* __context, ::IceInternal::InvocationObserver&)
 {
@@ -653,6 +797,16 @@ RoboCompGotoPoint::GotoPoint::___turn(::IceInternal::Incoming& __inS, const ::Ic
 }
 
 ::Ice::DispatchStatus
+RoboCompGotoPoint::GotoPoint::___stop(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
+{
+    __checkMode(::Ice::Normal, __current.mode);
+    __inS.readEmptyParams();
+    stop(__current);
+    __inS.__writeEmptyParams();
+    return ::Ice::DispatchOK;
+}
+
+::Ice::DispatchStatus
 RoboCompGotoPoint::GotoPoint::___atTarget(::IceInternal::Incoming& __inS, const ::Ice::Current& __current)
 {
     __checkMode(::Ice::Normal, __current.mode);
@@ -674,6 +828,7 @@ const ::std::string __RoboCompGotoPoint__GotoPoint_all[] =
     "ice_ids",
     "ice_isA",
     "ice_ping",
+    "stop",
     "turn"
 };
 
@@ -682,7 +837,7 @@ const ::std::string __RoboCompGotoPoint__GotoPoint_all[] =
 ::Ice::DispatchStatus
 RoboCompGotoPoint::GotoPoint::__dispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair< const ::std::string*, const ::std::string*> r = ::std::equal_range(__RoboCompGotoPoint__GotoPoint_all, __RoboCompGotoPoint__GotoPoint_all + 7, current.operation);
+    ::std::pair< const ::std::string*, const ::std::string*> r = ::std::equal_range(__RoboCompGotoPoint__GotoPoint_all, __RoboCompGotoPoint__GotoPoint_all + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -715,6 +870,10 @@ RoboCompGotoPoint::GotoPoint::__dispatch(::IceInternal::Incoming& in, const ::Ic
             return ___ice_ping(in, current);
         }
         case 6:
+        {
+            return ___stop(in, current);
+        }
+        case 7:
         {
             return ___turn(in, current);
         }

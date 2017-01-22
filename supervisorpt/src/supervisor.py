@@ -19,7 +19,6 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RoboComp.  If not, see <http://www.gnu.org/licenses/>.
 #
-
 # \mainpage RoboComp::supervisor
 #
 # \section intro_sec Introduction
@@ -52,8 +51,7 @@
 #
 # \subsection running_ssec Once running
 #
-#
-#
+
 
 import sys, traceback, Ice, IceStorm, subprocess, threading, time, Queue, os, copy
 
@@ -142,6 +140,23 @@ if __name__ == '__main__':
 			print 'Cannot get GotoPointProxy property.'
 			status = 1
 
+
+		# Remote object connection for DifferentialRobot
+		try:
+			proxyString = ic.getProperties().getProperty('DifferentialRobotProxy')
+			try:
+				basePrx = ic.stringToProxy(proxyString)
+				differentialrobot_proxy = RoboCompDifferentialRobot.DifferentialRobotPrx.checkedCast(basePrx)
+				mprx["DifferentialRobotProxy"] = differentialrobot_proxy
+			except Ice.Exception:
+				print 'Cannot connect to the remote object (DifferentialRobot)', proxyString
+				#traceback.print_exc()
+				status = 1
+		except Ice.Exception, e:
+			print e
+			print 'Cannot get DifferentialRobotProxy property.'
+			status = 1
+
 	except:
 			traceback.print_exc()
 			status = 1
@@ -149,7 +164,6 @@ if __name__ == '__main__':
 
 	if status == 0:
 		worker = SpecificWorker(mprx)
-
 
 #		adapter.add(CommonBehaviorI(<LOWER>I, ic), ic.stringToIdentity('commonbehavior'))
 

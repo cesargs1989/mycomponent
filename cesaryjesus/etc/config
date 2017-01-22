@@ -9,7 +9,7 @@ GotoPoint.Endpoints=tcp -p 10090
 
 CommonBehavior.Endpoints=tcp -p 11000
 # Proxies for required interfaces
-LaserProxy = laser:tcp -h localhost -p 10003
+LaserProxy = laser:tcp -h localhost -p 20000
 
 # This property is used by the clients to connect to IceStorm.
 TopicManager.Proxy=IceStorm/TopicManager:default -p 9999

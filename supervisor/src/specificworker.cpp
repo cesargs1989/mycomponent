@@ -79,8 +79,7 @@ void SpecificWorker::compute()
  		current = (current+1)%4;
  	      }else if (tag.cambiado())
  	      {
- 		
- 		
+			gotopoint_proxy->go("", tag.getPose().x(), tag.getPose().z(), 0);
  	      }
  	      break;
  	  }

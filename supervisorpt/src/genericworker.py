@@ -34,6 +34,7 @@ class GenericWorker(QtGui.QWidget):
 
 
 		self.gotopoint_proxy = mprx["GotoPointProxy"]
+		self.differentialrobot_proxy = mprx["DifferentialRobotProxy"]
 
 		self.ui = Ui_guiDlg()
 		self.ui.setupUi(self)

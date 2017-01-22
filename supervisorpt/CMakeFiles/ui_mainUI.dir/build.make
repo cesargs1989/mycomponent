@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/salabeta/robotica/mycomponent/supervisorpt
+CMAKE_SOURCE_DIR = /home/jesusuiano/robotica/mycomponent/supervisorpt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/salabeta/robotica/mycomponent/supervisorpt
+CMAKE_BINARY_DIR = /home/jesusuiano/robotica/mycomponent/supervisorpt
 
 # Utility rule file for ui_mainUI.
 
@@ -57,7 +57,7 @@ CMakeFiles/ui_mainUI: src/ui_mainUI.py
 
 
 src/ui_mainUI.py: src/mainUI.ui
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/salabeta/robotica/mycomponent/supervisorpt/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating src/ui_mainUI.py from src/mainUI.ui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/jesusuiano/robotica/mycomponent/supervisorpt/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating src/ui_mainUI.py from src/mainUI.ui"
 	pyside-uic src/mainUI.ui -o src/ui_mainUI.py
 
 ui_mainUI: CMakeFiles/ui_mainUI
@@ -76,6 +76,6 @@ CMakeFiles/ui_mainUI.dir/clean:
 .PHONY : CMakeFiles/ui_mainUI.dir/clean
 
 CMakeFiles/ui_mainUI.dir/depend:
-	cd /home/salabeta/robotica/mycomponent/supervisorpt && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/salabeta/robotica/mycomponent/supervisorpt /home/salabeta/robotica/mycomponent/supervisorpt /home/salabeta/robotica/mycomponent/supervisorpt /home/salabeta/robotica/mycomponent/supervisorpt /home/salabeta/robotica/mycomponent/supervisorpt/CMakeFiles/ui_mainUI.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jesusuiano/robotica/mycomponent/supervisorpt && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jesusuiano/robotica/mycomponent/supervisorpt /home/jesusuiano/robotica/mycomponent/supervisorpt /home/jesusuiano/robotica/mycomponent/supervisorpt /home/jesusuiano/robotica/mycomponent/supervisorpt /home/jesusuiano/robotica/mycomponent/supervisorpt/CMakeFiles/ui_mainUI.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ui_mainUI.dir/depend
 

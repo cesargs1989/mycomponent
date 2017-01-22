@@ -37,7 +37,7 @@ SpecificWorker::~SpecificWorker()
 
 bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
 {
-        innerModel= new InnerModel ( "/home/salabeta/robocomp/files/innermodel/simpleworld.xml" );
+        innerModel= new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/informatica_plantabaja.xml" );
         timer.start ( Period );
 
         return true;

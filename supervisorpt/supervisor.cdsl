@@ -7,7 +7,7 @@ Component supervisor
 {
 	Communications
 	{
-		requires GotoPoint;
+		requires GotoPoint, DifferentialRobot;
 	};
 	language python;
 	gui Qt(QWidget);
