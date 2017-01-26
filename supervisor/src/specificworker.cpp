@@ -34,68 +34,60 @@ SpecificWorker::~SpecificWorker()
 
 }
 
-bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params ){
+bool SpecificWorker::setParams ( RoboCompCommonBehavior::ParameterList params )
+{
 
 
-		iner = new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/simpleworld.xml" );
+        iner = new InnerModel ( "/home/jesusuiano/robocomp/files/innermodel/simpleworld.xml" );
         //timer.start ( Period );
-		current = 0;
+        current = 0;
 
         return true;
 }
 
 void SpecificWorker::compute()
 {
-	
- 	try
- 	{
-	  RoboCompDifferentialRobot::TBaseState bState;
-	  differentialrobot_proxy->getBaseState ( bState );
-	  qDebug()<< bState.x << bState.z;
-	  iner->updateTransformValues ( "base",bState.x,0,bState.z,0,bState.alpha,0 );
- 	  qDebug()<< current << "current state";
- 	  switch(estado)
- 	  {
- 	    case Estado::BUSCAR:
- 	      qDebug()<< "State SEARCH" ; 
- 
- 	      
- 	      if (tag.getID() == current)
- 	      {
- 		gotopoint_proxy->stop();
- 		gotopoint_proxy->go("base",tag.getPose().x(),tag.getPose().z(),0);
- 		estado = Estado::ESPERAR;
- 		qDebug()<<"State change to WAIT";
- 	      }else
- 		gotopoint_proxy->turn(0.6); 
- 	      break;
- 	    case Estado::ESPERAR:
- 	      qDebug()<< "State WAIT" ;
- 	      if (gotopoint_proxy->atTarget() == true )
- 	      {
- 		gotopoint_proxy->stop();
- 		estado = Estado::BUSCAR;
- 		qDebug()<<"State change to SEARCH";
- 		current = (current+1)%4;
- 	      }else if (tag.cambiado())
- 	      {
-			gotopoint_proxy->go("", tag.getPose().x(), tag.getPose().z(), 0);
- 	      }
- 	      break;
- 	  }
- 	
- 	}
- 	catch(const Ice::Exception &e)
- 	{
- 		std::cout << "Error reading from Camera" << e << std::endl;
- 	}
+
+        try {
+                RoboCompDifferentialRobot::TBaseState bState;
+                differentialrobot_proxy->getBaseState ( bState );
+                qDebug() << bState.x << bState.z;
+                iner->updateTransformValues ( "base",bState.x,0,bState.z,0,bState.alpha,0 );
+                qDebug() << current << "current state";
+                switch ( estado ) {
+                case Estado::BUSCAR:
+                        qDebug() << "State SEARCH" ;
+                        if ( tag.getID() == current ) {
+                                gotopoint_proxy->stop();
+                                gotopoint_proxy->go ( "base", tag.getPose().x(), tag.getPose().z(),0 );
+                                estado = Estado::ESPERAR; 
+                                qDebug() <<"State change to WAIT";
+                        } else
+                                gotopoint_proxy->turn ( 0.6 );
+                        break;
+                case Estado::ESPERAR:
+                        qDebug() << "State WAIT" ;
+                        if ( gotopoint_proxy->atTarget() == true ) {
+                                gotopoint_proxy->stop();
+                                estado = Estado::BUSCAR;
+                                qDebug() <<"State change to SEARCH";
+                                current = ( current+1 ) %4;
+                        } else if ( tag.cambiado() ) {
+                                gotopoint_proxy->go ( "", tag.getPose().x(), tag.getPose().z(), 0 );
+                        }
+                        break;
+                }
+
+        } catch ( const Ice::Exception &e ) {
+                std::cout << "Error reading from Camera" << e << std::endl;
+        }
 }
 
 
 
 void SpecificWorker::newAprilTag ( const tagsList &tags )
 {
-	tag.copy(tags[0].tx,tags[0].tz,tags[0].id);
+        tag.copy ( tags[0].tx,tags[0].tz,tags[0].id );
 }
 
 

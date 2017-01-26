@@ -19,7 +19,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with RoboComp.  If not, see <http://www.gnu.org/licenses/>.
 #
-# \mainpage RoboComp::supervisor
+
+# \mainpage RoboComp::Segurata
 #
 # \section intro_sec Introduction
 #
@@ -47,11 +48,12 @@
 #
 # \subsection execution_ssec Execution
 #
-# Just: "${PATH_TO_BINARY}/supervisor --Ice.Config=${PATH_TO_CONFIG_FILE}"
+# Just: "${PATH_TO_BINARY}/Segurata --Ice.Config=${PATH_TO_CONFIG_FILE}"
 #
 # \subsection running_ssec Once running
 #
-
+#
+#
 
 import sys, traceback, Ice, IceStorm, subprocess, threading, time, Queue, os, copy
 
@@ -77,12 +79,10 @@ if len(ROBOCOMP)<1:
 preStr = "-I"+ROBOCOMP+"/interfaces/ -I/opt/robocomp/interfaces/ --all "+ROBOCOMP+"/interfaces/"
 Ice.loadSlice(preStr+"CommonBehavior.ice")
 import RoboCompCommonBehavior
-Ice.loadSlice(preStr+"GotoPoint.ice")
-import RoboCompGotoPoint
-Ice.loadSlice(preStr+"AprilTags.ice")
-import RoboCompAprilTags
 Ice.loadSlice(preStr+"DifferentialRobot.ice")
 import RoboCompDifferentialRobot
+Ice.loadSlice(preStr+"GotoPoint.ice")
+import RoboCompGotoPoint
 
 
 class CommonBehaviorI(RoboCompCommonBehavior.CommonBehavior):
@@ -124,23 +124,6 @@ if __name__ == '__main__':
 	mprx = {}
 	try:
 
-		# Remote object connection for GotoPoint
-		try:
-			proxyString = ic.getProperties().getProperty('GotoPointProxy')
-			try:
-				basePrx = ic.stringToProxy(proxyString)
-				gotopoint_proxy = RoboCompGotoPoint.GotoPointPrx.checkedCast(basePrx)
-				mprx["GotoPointProxy"] = gotopoint_proxy
-			except Ice.Exception:
-				print 'Cannot connect to the remote object (GotoPoint)', proxyString
-				#traceback.print_exc()
-				status = 1
-		except Ice.Exception, e:
-			print e
-			print 'Cannot get GotoPointProxy property.'
-			status = 1
-
-
 		# Remote object connection for DifferentialRobot
 		try:
 			proxyString = ic.getProperties().getProperty('DifferentialRobotProxy')
@@ -157,6 +140,23 @@ if __name__ == '__main__':
 			print 'Cannot get DifferentialRobotProxy property.'
 			status = 1
 
+
+		# Remote object connection for GotoPoint
+		try:
+			proxyString = ic.getProperties().getProperty('GotoPointProxy')
+			try:
+				basePrx = ic.stringToProxy(proxyString)
+				gotopoint_proxy = RoboCompGotoPoint.GotoPointPrx.checkedCast(basePrx)
+				mprx["GotoPointProxy"] = gotopoint_proxy
+			except Ice.Exception:
+				print 'Cannot connect to the remote object (GotoPoint)', proxyString
+				#traceback.print_exc()
+				status = 1
+		except Ice.Exception, e:
+			print e
+			print 'Cannot get GotoPointProxy property.'
+			status = 1
+
 	except:
 			traceback.print_exc()
 			status = 1
@@ -164,6 +164,7 @@ if __name__ == '__main__':
 
 	if status == 0:
 		worker = SpecificWorker(mprx)
+
 
 #		adapter.add(CommonBehaviorI(<LOWER>I, ic), ic.stringToIdentity('commonbehavior'))
 
@@ -174,4 +175,4 @@ if __name__ == '__main__':
 			ic.destroy()
 		except:
 			traceback.print_exc()
-			status = 1
+status = 1

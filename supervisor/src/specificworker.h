@@ -70,24 +70,25 @@ private:
       };
       
       void Init(InnerModel* inm){
-	inner = inm;
+		inner = inm;
       
       }
       void copy( float x, float z, int id_){
-	QMutexLocker lm(&m);
-	pose = inner->transform ("world",QVec::vec3(x,0,z),"rgbd");
-	qDebug()<< x << z << "dir recibidos del april";
-	qDebug()<< pose.x() << pose.z() << "dir recibidos del transform";
-	id = id_;
+		QMutexLocker lm(&m);
+		pose = inner->transform ("world",QVec::vec3(x,0,z),"rgbd");
+		qDebug()<< x << z << "dir recibidos del april";
+		qDebug()<< pose.x() << pose.z() << "dir recibidos del transform";
+		id = id_;
       }
-    QVec getPose(){
-	QMutexLocker lm(&m);
-	return pose;
-      }
-      int getID()
-      {
-	QMutexLocker lm(&m);
-	return id;
+      
+	  QVec getPose(){
+		QMutexLocker lm(&m);
+		return pose;
+	  }
+	  
+      int getID(){
+	  QMutexLocker lm(&m);
+		return id;
       }
     }tag; 
 };

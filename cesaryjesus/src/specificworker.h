@@ -74,6 +74,9 @@ class SpecificWorker : public GenericWorker
 	QMutexLocker lm(&m);
 	return pose;
       }
+    bool isActive(){ 
+      return active;
+	}
     };
 
     InnerModel* innerModel;
